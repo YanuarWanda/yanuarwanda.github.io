@@ -1,11 +1,16 @@
 ---
-interface Props {
-	title: string;
-	description?: string;
-	image?: string;
-}
+import type { SiteConfig } from '../types';
+import { SITE_CONFIG } from '../data/site';
 
-const { title, description = "Personal website of Yanuar Wanda", image } = Astro.props;
+const props: SiteConfig = {
+	title: Astro.props.title || SITE_CONFIG.title,
+	description: Astro.props.description || SITE_CONFIG.description,
+	image: Astro.props.image || SITE_CONFIG.image,
+	url: SITE_CONFIG.url + Astro.url.pathname,
+	author: SITE_CONFIG.author,
+	keywords: SITE_CONFIG.keywords,
+	theme: SITE_CONFIG.theme
+};
 ---
 
 <head>
@@ -13,8 +18,14 @@ const { title, description = "Personal website of Yanuar Wanda", image } = Astro
 	<meta name="viewport" content="width=device-width" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="generator" content={Astro.generator} />
-	<meta name="description" content={description} />
-	<title>{title}</title>
+	<meta name="description" content={props.description} />
+	<meta name="keywords" content={props.keywords.join(', ')} />
+	<title>{props.title}</title>
+	<link rel="canonical" href={props.url} />
+	<meta name="theme-color" content="#ffffff" />
+	<meta name="author" content={props.author} />
 	
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+	{props.image && (
+		<meta property="og:image" content={props.image} />
+	)}
 </head>

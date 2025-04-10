@@ -1,27 +1,39 @@
 ---
+import { Image } from 'astro:assets'
+import profileImage from '../assets/images/profile.jpg'
 import '../styles/components/navigation.css'
+import type { NavigationItem } from '../types'
+import { NAVIGATION_ITEMS } from '../data/navigation'
 
-interface Props {
-	navItems: {
-		text: string;
-		href: string;
-	}[];
-}
-
-const { navItems } = Astro.props;
+const {
+  navItems = NAVIGATION_ITEMS
+} = Astro.props as { navItems?: NavigationItem[] };
 ---
 
-<nav class="nav">
-	<div class="nav-header">
-		<div class="profile-image">
-			<img src="https://media.licdn.com/dms/image/v2/C5603AQFINH8uyrFHJg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1629954223143?e=1749686400&v=beta&t=gotu_p9yqhtrjtcSEb0_DVcMNpBJkRpAQigD9dfURBw" alt="Profile" class="profile-image" />
-		</div>
-	</div>
-	<ul>
-		{navItems.map((item) => (
-			<li>
-				<a href={item.href}>{item.text}</a>
-			</li>
-		))}
-	</ul>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-header">
+    <div class="profile-image">
+      <Image 
+        src={profileImage} 
+        alt="Profile picture of Yanuar Wanda" 
+        class="profile-image" 
+        loading="lazy"
+        width="64"
+        height="64"
+      />
+    </div>
+  </div>
+  <ul role="list">
+    {navItems.map(item => (
+      <li role="listitem">
+        <a 
+          href={item.href} 
+          class="nav-link"
+          aria-label={`Go to ${item.text} section`}
+        >
+          {item.text}
+        </a>
+      </li>
+    ))}
+  </ul>
 </nav>

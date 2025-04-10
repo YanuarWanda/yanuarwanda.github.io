@@ -3,41 +3,32 @@ import Navigation from '../components/Navigation.astro';
 import Head from '../components/Head.astro';
 import '../styles/global.css';
 import '../styles/layouts/layout.css';
+import { NAVIGATION_ITEMS } from '../data/navigation';
+import { SITE_CONFIG } from '../data/site';
+import type { NavigationItem } from '../types';
 
-interface Props {
-	siteTitle?: string;
-	description?: string;
-	image?: string;
+export interface LayoutProps {
+  siteTitle?: string;
+  description?: string;
+  image?: string;
+  navItems?: NavigationItem[];
 }
 
-const { siteTitle = "Yanuar Wanda", description, image } = Astro.props;
-
-const navItems = [
-	{
-		text: "About",
-		href: "/"
-	},
-	{
-		text: "Projects",
-		href: "/projects"
-	},
-	{
-		text: "Blogs",
-		href: "/blogs"
-	}
-];
+const { 
+	siteTitle = SITE_CONFIG.title,
+	description = SITE_CONFIG.description,
+	image = SITE_CONFIG.image,
+	navItems = NAVIGATION_ITEMS
+} = Astro.props as LayoutProps;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-		<Head title={siteTitle} description={description} image={image} />
-	</head>
+	<Head 
+		title={siteTitle}
+		description={description}
+		image={image}
+	/>
 	<body>
 		<div class="container">
 			<Navigation navItems={navItems} />
