@@ -4,11 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "dev-expose": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.6.1"
+    "astro": "^5.6.1",
+    "shiki": "^3.2.2"
   }
 }

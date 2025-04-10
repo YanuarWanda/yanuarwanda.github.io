@@ -1,0 +1,27 @@
+---
+import '../styles/components/navigation.css'
+
+interface Props {
+	navItems: {
+		text: string;
+		href: string;
+	}[];
+}
+
+const { navItems } = Astro.props;
+---
+
+<nav class="nav">
+	<div class="nav-header">
+		<div class="profile-image">
+			<img src="https://media.licdn.com/dms/image/v2/C5603AQFINH8uyrFHJg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1629954223143?e=1749686400&v=beta&t=gotu_p9yqhtrjtcSEb0_DVcMNpBJkRpAQigD9dfURBw" alt="Profile" class="profile-image" />
+		</div>
+	</div>
+	<ul>
+		{navItems.map((item) => (
+			<li>
+				<a href={item.href}>{item.text}</a>
+			</li>
+		))}
+	</ul>
+</nav>
