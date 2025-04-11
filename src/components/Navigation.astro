@@ -10,6 +10,21 @@ const {
 } = Astro.props as { navItems?: NavigationItem[] };
 
 const currentPath = Astro.url.pathname;
+
+const isActive = (itemHref: string) => {
+  if (itemHref === '/' && (currentPath === '/' || currentPath === '/index.html')) {
+    return true;
+  }
+  
+  if (itemHref !== '/') {
+    return currentPath === itemHref || 
+           currentPath.startsWith(`${itemHref}/`) || 
+           currentPath === `${itemHref}.html` || 
+           currentPath === `${itemHref}/index.html`;
+  }
+  
+  return false;
+};
 ---
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -57,9 +72,9 @@ const currentPath = Astro.url.pathname;
       <li role="listitem">
         <a 
           href={item.href} 
-          class={`nav-link ${currentPath === item.href ? 'active' : ''}`}
+          class={`nav-link ${isActive(item.href) ? 'active' : ''}`}
           aria-label={`Go to ${item.text} section`}
-          aria-current={currentPath === item.href ? 'page' : undefined}
+          aria-current={isActive(item.href) ? 'page' : undefined}
         >
           {item.text}
         </a>
