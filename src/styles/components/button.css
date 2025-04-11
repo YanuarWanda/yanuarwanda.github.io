@@ -1,0 +1,45 @@
+@import '../theme.css';
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-medium);
+  margin-top: var(--spacing-medium);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-small);
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+
+.button:hover {
+  background-color: var(--color-hover);
+}
+
+.button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.button-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+}
