@@ -79,4 +79,16 @@ const currentPath = Astro.url.pathname;
       hamburgerButton.setAttribute('aria-expanded', isExpanded.toString());
     });
   }
+
+  window.addEventListener('click', (event: MouseEvent) => {
+    if (navList
+      && !hamburgerButton?.contains(event.target as Node)
+      && !navList?.contains(event.target as Node)
+    ) {
+      navList.classList.remove('nav-open');
+      if (hamburgerButton) {
+        hamburgerButton.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
 </script>
