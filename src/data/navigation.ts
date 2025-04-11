@@ -6,11 +6,15 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     href: '/about',
   },
   {
+    text: 'Blogs',
+    href: '/blogs',
+  },
+  {
     text: 'Projects',
     href: '/projects',
   },
   {
-    text: 'Blogs',
-    href: '/blogs',
-  },
+    text: 'Resume',
+    href: '/documents/resume.pdf',
+  }
 ];
