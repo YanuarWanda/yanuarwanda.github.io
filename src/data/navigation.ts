@@ -3,7 +3,7 @@ import type { NavigationItem } from '../types';
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     text: 'About',
-    href: '/',
+    href: '/about',
   },
   {
     text: 'Projects',

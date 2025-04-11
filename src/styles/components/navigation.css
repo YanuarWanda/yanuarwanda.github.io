@@ -1,15 +1,16 @@
 @import '../theme.css';
 
 .nav {
-	padding: 0;
 	max-width: 100%;
-	border: 1px solid var(--color-border);
 	color: var(--color-text);
+	position: relative;
+	height: auto;
+	width: 100%;
+	border: 0px;
 }
 
 .nav-header {
-	text-align: center;
-	padding: var(--spacing-medium);
+	display: none;
 }
 
 .profile-image {
@@ -21,10 +22,12 @@
 
 .nav ul {
 	list-style: none;
-	padding: 0;
 	margin: 0;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	gap: 1rem;
+	justify-content: center;
+	padding: 1rem;
 }
 
 .nav li {
@@ -43,49 +46,29 @@
 	color: var(--color-text);
 	font-weight: var(--font-weight-medium);
 	text-align: center;
+	padding: 0.5rem 1rem;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 577px) {
 	.nav {
 		width: 128px;
-		border-right: 0;
+		border-left: 1px solid var(--color-border);
+		
 	}
 	
 	.nav-header {
+		display: block;
+		text-align: center;
+		padding: var(--spacing-medium);
 		margin-bottom: 2rem;
 		border-bottom: 1px solid var(--color-border);
 	}
 	
 	.nav ul {
+		padding: 0;
+		flex-direction: column;
+		gap: 0;
 		padding-bottom: 2rem;
 		border-bottom: 1px solid var(--color-border);
-	}
-}
-
-@media (max-width: 768px) {
-	.nav {
-		position: relative;
-		height: auto;
-		width: 100%;
-		border: 0px;
-	}
-	
-	.nav-header {
-		text-align: center;
-	}
-	
-	.nav ul {
-		display: flex;
-		flex-direction: row;
-		gap: 1rem;
-		justify-content: center;
-		padding: 1rem;
-	}
-	
-	.nav a {
-		width: auto;
-		text-align: center;
-		border: none;
-		padding: 0.5rem 1rem;
 	}
 }
