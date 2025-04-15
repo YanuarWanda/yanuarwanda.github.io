@@ -1,0 +1,17 @@
+---
+import '../styles/components/pill.css'
+import { type TimelineProps } from "../types";
+import TimelineItem from "./TimelineItem.astro";
+
+const {
+    timelineItems
+} = Astro.props as {
+    timelineItems: TimelineProps[]
+};
+---
+
+<div class="timeline-container">
+    {timelineItems.map(timeline =>
+        <TimelineItem title={timeline.title} subtitle={timeline.subtitle} description={timeline.description} />
+    )}
+</div>
