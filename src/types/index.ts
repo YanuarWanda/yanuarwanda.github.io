@@ -12,3 +12,9 @@ export interface SiteConfig {
   keywords: string[];
   theme: string;
 }
+
+export interface TimelineProps {
+  title: string;
+  subtitle: string;
+  description?: string;
+}

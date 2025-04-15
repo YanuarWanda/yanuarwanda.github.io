@@ -1,0 +1,10 @@
+.pill-container {
+    display: flex;
+    gap: var(--spacing-small);
+    flex-wrap: wrap;
+}
+
+.pill-item {
+    padding: var(--spacing-small);
+    background-color: var(--color-hover);
+}
