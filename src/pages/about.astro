@@ -6,21 +6,21 @@ import '../styles/components/pill.css'
 ---
 
 <Layout>
-    <h1>About</h1>
-    <p>I’m a web developer with over <strong>2 years of experience</strong> building responsive, accessible, and user-friendly web interfaces using modern technologies like React, Laravel (Blade), and .NET. I enjoy turning ideas into polished, interactive experiences that not only look great but work smoothly across devices.</p>
-    <p>I'm based in Bandung, Indonesia, and began my professional journey at Radya Labs Teknologi (now Radya Digital) where I started as a Web & Chatbot Developer intern in August 2021. I was then offered a part-time Web Developer role, which lasted until November 2022, and continued on as a full-time Web Developer for another year. During my time there, I worked on various real-world projects across e-commerce, chatbots, and internal tools. Alongside my work experience, I'm currently completing my Informatics Engineering degree at UNIKOM Indonesia.</p>
-    <p>I’m passionate about learning new technologies and solving real-world problems through code. Whether it’s experimenting with a new framework, improving UI/UX, or finding ways to make systems run more efficiently, I’m always excited to explore, build, and grow.</p>
+  <h1>About</h1>
+  <p>I’m a web developer with over <strong>2 years of experience</strong> building responsive, accessible, and user-friendly web interfaces using modern technologies like React, Laravel (Blade), and .NET. I enjoy turning ideas into polished, interactive experiences that not only look great but work smoothly across devices.</p>
+  <p>I'm based in Bandung, Indonesia, and began my professional journey at Radya Labs Teknologi (now Radya Digital) where I started as a Web & Chatbot Developer intern in August 2021. I was then offered a part-time Web Developer role, which lasted until November 2022, and continued on as a full-time Web Developer for another year. During my time there, I worked on various real-world projects across e-commerce, chatbots, and internal tools. Alongside my work experience, I'm currently completing my Informatics Engineering degree at UNIKOM Indonesia.</p>
+  <p>I’m passionate about learning new technologies and solving real-world problems through code. Whether it’s experimenting with a new framework, improving UI/UX, or finding ways to make systems run more efficiently, I’m always excited to explore, build, and grow.</p>
 
-    <h2>Experience</h2>
-    <Timeline timelineItems={experiences} />
+  <h2>Experience</h2>
+  <Timeline timelineItems={experiences} />
 
-    <h2>Education</h2>
-    <Timeline timelineItems={educations} />
+  <h2>Education</h2>
+  <Timeline timelineItems={educations} />
 
-    <h2>Skills</h2>
-    <div class="pill-container">
-        {skills.map(skill =>
-            <div class="pill-item">{skill}</div>
-        )}
-    </div>
+  <h2>Skills</h2>
+  <div class="pill-container">
+      {skills.map(skill =>
+          <div class="pill-item">{skill}</div>
+      )}
+  </div>
 </Layout>
