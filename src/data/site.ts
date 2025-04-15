@@ -28,7 +28,7 @@ export const experiences: TimelineProps[] = [
 
 export const educations: TimelineProps[] = [
   {
-    title: "Bachelor of Informatics Engineering",
+    title: "Bachelor of Computer Science",
     subtitle: "UNIKOM Indonesia • 2025"
   }
 ]
