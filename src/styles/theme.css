@@ -2,8 +2,10 @@
   /* Colors */
   --color-primary: #0070f3;
   --color-text: #eee;
+  --color-text-secondary: rgb(156 163 175);
   --color-background: #000;
   --color-border: #fff;
+  --color-border-secondary: rgb(156 163 175);
   --color-hover: rgba(255, 255, 255, 0.25);
   --color-active: rgba(255, 255, 255, 0.15);
   --color-accent: #4a5568;
@@ -28,8 +30,8 @@
   --font-size-h5: clamp(1.25rem, 3vw, 2.5rem);
   --font-size-h6: clamp(1.125rem, 2.5vw, 2rem);
   --font-size-body: clamp(1rem, 2vw, 1.5rem);
-  --font-size-small: clamp(0.875rem, 1.5vw, 1.25rem);
-  --font-size-smaller: clamp(0.75rem, 1.25vw, 1rem);
+  --font-size-small: clamp(0.875rem, 1.5vw, 1.125rem);
+  --font-size-smaller: clamp(0.75rem, 1.25vw, 0.75rem);
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 600;

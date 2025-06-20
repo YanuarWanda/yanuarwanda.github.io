@@ -1,40 +1,44 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import Head from '../components/Head.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-import '../styles/layouts/layout.css';
-import { NAVIGATION_ITEMS } from '../data/navigation';
-import { SITE_CONFIG } from '../data/site';
-import type { NavigationItem } from '../types';
+import Navigation from "../components/Navigation.astro";
+import Head from "../components/Head.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import "../styles/layouts/layout.css";
+import { NAVIGATION_ITEMS } from "../data/navigation";
+import { SITE_CONFIG } from "../data/site";
+import type { NavigationItem } from "../types";
 
 export interface LayoutProps {
-  siteTitle?: string;
-  description?: string;
-  image?: string;
-  navItems?: NavigationItem[];
+	siteTitle?: string;
+	description?: string;
+	image?: string;
+	navItems?: NavigationItem[];
+	page: string;
 }
 
-const { 
+const {
 	siteTitle = SITE_CONFIG.title,
 	description = SITE_CONFIG.description,
 	image = SITE_CONFIG.image,
-	navItems = NAVIGATION_ITEMS
+	navItems = NAVIGATION_ITEMS,
+	page = "home"
 } = Astro.props as LayoutProps;
 ---
 
 <!doctype html>
 <html lang="en">
-	<Head 
-		title={siteTitle}
-		description={description}
-		image={image}
-	/>
+	<Head title={siteTitle} description={description} image={image} />
 	<body>
 		<div class="container">
 			<Navigation navItems={navItems} />
 			<main class="content">
-				<slot />
+				<div class="content-header">
+					<div>portofolio / {page}</div>
+					<div>{SITE_CONFIG.version} {SITE_CONFIG.lastUpdated}</div>
+				</div>
+				<div class="content-container">
+					<slot />
+				</div>
 			</main>
 			<Footer />
 		</div>

@@ -11,10 +11,17 @@ export interface SiteConfig {
   author: string;
   keywords: string[];
   theme: string;
+  version: string;
+  lastUpdated: string;
 }
 
 export interface TimelineProps {
   title: string;
   subtitle: string;
   description?: string;
+}
+
+export interface CardProps {
+  title: string;
+  header?: string;
 }
