@@ -2,8 +2,10 @@
   /* Colors */
   --color-primary: #0070f3;
   --color-text: #eee;
+  --color-text-secondary: rgb(156 163 175);
   --color-background: #000;
   --color-border: #fff;
+  --color-border-secondary: rgb(156 163 175);
   --color-hover: rgba(255, 255, 255, 0.25);
   --color-active: rgba(255, 255, 255, 0.15);
   --color-accent: #4a5568;

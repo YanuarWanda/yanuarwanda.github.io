@@ -1,4 +1,4 @@
-import type {SiteConfig, TimelineProps} from '../types';
+import type { SiteConfig, TimelineProps } from '../types';
 
 export const SITE_CONFIG: SiteConfig = {
   title: "Yanuar Wanda",
@@ -12,7 +12,9 @@ export const SITE_CONFIG: SiteConfig = {
     "portfolio",
     "projects"
   ],
-  theme: "light"
+  theme: "light",
+  version: "v0.0.1",
+  lastUpdated: "20.06.25"
 };
 
 export const experiences: TimelineProps[] = [

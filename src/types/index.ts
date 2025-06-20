@@ -11,6 +11,8 @@ export interface SiteConfig {
   author: string;
   keywords: string[];
   theme: string;
+  version: string;
+  lastUpdated: string;
 }
 
 export interface TimelineProps {

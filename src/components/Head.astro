@@ -22,9 +22,8 @@ const props: SiteConfig = {
 	<meta name="keywords" content={props.keywords.join(', ')} />
 	<title>{props.title}</title>
 	<link rel="canonical" href={props.url} />
-	<meta name="theme-color" content="#ffffff" />
 	<meta name="author" content={props.author} />
-	
+
 	{props.image && (
 		<meta property="og:image" content={props.image} />
 	)}
