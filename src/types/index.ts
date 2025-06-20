@@ -20,3 +20,8 @@ export interface TimelineProps {
   subtitle: string;
   description?: string;
 }
+
+export interface CardProps {
+  title: string;
+  header?: string;
+}

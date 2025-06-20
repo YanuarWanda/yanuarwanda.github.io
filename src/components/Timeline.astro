@@ -1,17 +1,54 @@
 ---
-import '../styles/components/pill.css'
+import "../styles/components/pill.css";
 import { type TimelineProps } from "../types";
 import TimelineItem from "./TimelineItem.astro";
 
-const {
-    timelineItems
-} = Astro.props as {
-    timelineItems: TimelineProps[]
+const { timelineItems } = Astro.props as {
+    timelineItems: TimelineProps[];
 };
 ---
 
 <div class="timeline-container">
-    {timelineItems.map(timeline =>
-        <TimelineItem title={timeline.title} subtitle={timeline.subtitle} description={timeline.description} />
-    )}
+    {
+        timelineItems.map((timeline) => (
+            <TimelineItem
+                title={timeline.title}
+                subtitle={timeline.subtitle}
+                description={timeline.description}
+            />
+        ))
+    }
 </div>
+
+<script>
+    const timelineContainerEl = document.querySelector(".timeline-container");
+    if (timelineContainerEl) {
+        timelineContainerEl.addEventListener("click", (e) => {
+            const currentEl = e.target as HTMLDivElement;
+            if (!currentEl) return;
+
+            let timelineDescriptionEl;
+
+            if (
+                currentEl.classList.contains("timeline-title") ||
+                currentEl.classList.contains("timeline-subtitle")
+            ) {
+                timelineDescriptionEl = currentEl.parentElement?.querySelector(
+                    ".timeline-description",
+                );
+            } else if (currentEl.classList.contains("timeline-item")) {
+                timelineDescriptionEl = currentEl.querySelector(
+                    ".timeline-description",
+                );
+            } else if (currentEl.classList.contains("timeline-description")) {
+                timelineDescriptionEl = currentEl;
+            } else {
+                return;
+            }
+
+            if (!timelineDescriptionEl) return;
+
+            timelineDescriptionEl?.classList.toggle("visible");
+        });
+    }
+</script>
