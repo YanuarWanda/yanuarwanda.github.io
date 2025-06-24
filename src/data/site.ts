@@ -23,14 +23,14 @@ export const experiences: TimelineProps[] = [
     subtitle: "Radya Digital • Nov 2021 - Nov 2023",
     description: "Developed and maintained chatbot and e-commerce projects.",
     points: [
-      "Developed and optimized a spare parts e-commerce platform, improving UI/UX design and reducing load time, leading to a better user experience and increased engagement.",
+      "Optimized e-commerce platform, improving UI/UX design and reducing load time, leading to a better user experience and increased engagement.",
       "Assisted the chatbot customer service team in improving the communication process with customers by creating a queuing system for customer service agents.",
       "Continue to maintain several chatbots from various companies, ensuring that features and customer interactions with chatbots run smoothly on a daily basis.",
       "Tech and languages used: PHP, Laravel, Javascript, C#, .NET"
     ]
   },
   {
-    title: "Web & Chatbot Developer (Internship)",
+    title: "Web Developer (Internship)",
     subtitle: "Radya Digital • Aug 2021 - Nov 2021",
     description: "Developed and maintained chatbot and internal tool projects.",
     points: [

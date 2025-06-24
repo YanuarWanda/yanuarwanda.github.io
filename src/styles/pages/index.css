@@ -14,7 +14,7 @@
 @media (min-width: 577px) {
     .content-container {
         grid-template-columns: auto auto;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     .card:first-child {
