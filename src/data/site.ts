@@ -12,9 +12,9 @@ export const SITE_CONFIG: SiteConfig = {
     "portfolio",
     "projects"
   ],
-  theme: "light",
-  version: "v0.0.1",
-  lastUpdated: "20.06.25"
+  theme: "dark",
+  version: "v0.0.2",
+  lastUpdated: "24.06.25"
 };
 
 export const experiences: TimelineProps[] = [
