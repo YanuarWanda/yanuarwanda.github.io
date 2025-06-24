@@ -21,14 +21,14 @@
 }
 
 .timeline-subtitle {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-body);
     color: var(--color-text);
 }
 
 .timeline-description,
 .timeline-point-container {
     margin-top: var(--spacing-small);
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-body);
     max-height: 0px;
     margin: 0;
     overflow: hidden;

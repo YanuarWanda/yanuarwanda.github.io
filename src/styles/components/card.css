@@ -3,7 +3,7 @@
 }
 
 .card-title {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-body);
     display: grid;
     grid-template-columns: 8px auto 1fr;
     align-items: center;

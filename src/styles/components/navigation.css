@@ -57,13 +57,13 @@
 }
 
 .nav-title {
-	font-size: var(--font-size-small);
+	font-size: var(--font-size-body);
 	margin: 0;
 }
 
 .nav-subtitle {
 	display: none;
-	font-size: var(--font-size-smaller);
+	font-size: var(--font-size-small);
 	color: var(--color-text-secondary);
 	margin: 0;
 }
@@ -125,7 +125,7 @@
 	padding: 1rem;
 	color: var(--color-text);
 	font-weight: var(--font-weight-medium);
-	font-size: var(--font-size-small);
+	font-size: var(--font-size-body);
 	text-decoration: none;
 }
 
