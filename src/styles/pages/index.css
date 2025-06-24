@@ -4,7 +4,7 @@
 }
 
 .quick-link-title {
-    font-size: var(--font-size-smaller);
+    font-size: var(--font-size-small);
 }
 
 .card:nth-child(2) {

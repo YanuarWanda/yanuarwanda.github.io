@@ -15,40 +15,26 @@ const { timelineItems } = Astro.props as {
                 title={timeline.title}
                 subtitle={timeline.subtitle}
                 description={timeline.description}
+                points={timeline.points}
             />
         ))
     }
 </div>
 
 <script>
-    const timelineContainerEl = document.querySelector(".timeline-container");
-    if (timelineContainerEl) {
-        timelineContainerEl.addEventListener("click", (e) => {
+    const containerEl = document.querySelector(".timeline-container");
+    if (containerEl) {
+        containerEl.addEventListener("click", (e) => {
             const currentEl = e.target as HTMLDivElement;
             if (!currentEl) return;
 
-            let timelineDescriptionEl;
+            let itemEl = currentEl.closest(".timeline-item");
+            if (!itemEl) return;
 
-            if (
-                currentEl.classList.contains("timeline-title") ||
-                currentEl.classList.contains("timeline-subtitle")
-            ) {
-                timelineDescriptionEl = currentEl.parentElement?.querySelector(
-                    ".timeline-description",
-                );
-            } else if (currentEl.classList.contains("timeline-item")) {
-                timelineDescriptionEl = currentEl.querySelector(
-                    ".timeline-description",
-                );
-            } else if (currentEl.classList.contains("timeline-description")) {
-                timelineDescriptionEl = currentEl;
-            } else {
-                return;
-            }
+            let descriptionEl = itemEl.querySelector(".timeline-description");
+            if (!descriptionEl) return;
 
-            if (!timelineDescriptionEl) return;
-
-            timelineDescriptionEl?.classList.toggle("visible");
+            descriptionEl?.classList.toggle("visible");
         });
     }
 </script>

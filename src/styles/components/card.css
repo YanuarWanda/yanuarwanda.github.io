@@ -34,4 +34,9 @@
         border: 1px solid var(--color-border);
         border-radius: var(--border-radius-medium);
     }
+
+    .card.card-no-border {
+        border: 0;
+        padding: 0;
+    }
 }

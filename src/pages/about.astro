@@ -32,17 +32,17 @@ import Card from "../components/Card.astro";
     </p>
   </Card>
 
-  <Card title="Skills & Tech">
-    <div class="pill-container padded">
-      {skills.map((skill) => <div class="pill-item">{skill}</div>)}
-    </div>
-  </Card>
-
-  <Card title="Experiences">
+  <Card title="Experiences" type="no-border">
     <Timeline timelineItems={experiences} />
   </Card>
 
-  <Card title="Educations">
+  <Card title="Educations" type="no-border">
     <Timeline timelineItems={educations} />
+  </Card>
+
+  <Card title="Skills & Tech" type="no-border">
+    <div class="pill-container padded">
+      {skills.map((skill) => <div class="pill-item">{skill}</div>)}
+    </div>
   </Card>
 </Layout>

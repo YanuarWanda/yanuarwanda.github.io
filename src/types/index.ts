@@ -20,9 +20,11 @@ export interface TimelineProps {
   title: string;
   subtitle: string;
   description?: string;
+  points?: string[];
 }
 
 export interface CardProps {
   title: string;
   header?: string;
+  type: "default" | "no-border";
 }
