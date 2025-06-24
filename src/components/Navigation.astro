@@ -157,6 +157,7 @@ const isActive = (itemHref: string) => {
             class={`nav-link ${isActive(item.href) ? "active" : ""}`}
             aria-label={`Go to ${item.text} section`}
             aria-current={isActive(item.href) ? "page" : undefined}
+            target={item.toNewTab ? "_blank" : ""}
           >
             {item.text}
           </a>

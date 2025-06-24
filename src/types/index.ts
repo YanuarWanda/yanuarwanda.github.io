@@ -1,6 +1,7 @@
 export interface NavigationItem {
   text: string;
   href: string;
+  toNewTab: boolean;
 }
 
 export interface SiteConfig {
