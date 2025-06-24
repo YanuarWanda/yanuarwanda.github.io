@@ -17,24 +17,26 @@
 }
 
 .timeline-title {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-body);
 }
 
 .timeline-subtitle {
-    font-size: var(--font-size-smaller);
+    font-size: var(--font-size-body);
     color: var(--color-text);
 }
 
-.timeline-description {
+.timeline-description,
+.timeline-point-container {
     margin-top: var(--spacing-small);
-    font-size: var(--font-size-smaller);
+    font-size: var(--font-size-body);
     max-height: 0px;
     margin: 0;
     overflow: hidden;
     transition: var(--transition-default);
 }
 
-.timeline-description.visible {
+.timeline-description.visible,
+.timeline-description.visible .timeline-point-container {
     max-height: 1000px;
     margin-top: 8px;
 }
@@ -53,6 +55,6 @@
     transition: var(--transition-default);
 }
 
-.timeline-description.visible + .timeline-arrow {
+.timeline-description.visible+.timeline-arrow {
     transform: rotate(45deg);
 }

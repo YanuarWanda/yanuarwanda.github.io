@@ -4,17 +4,21 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
     text: 'About',
     href: '/about',
+    toNewTab: false,
   },
   {
     text: 'Blogs',
     href: '/blogs',
+    toNewTab: false,
   },
   {
     text: 'Projects',
     href: '/projects',
+    toNewTab: false,
   },
   {
     text: 'Resume',
-    href: '/documents/resume.pdf',
+    href: '/documents/resume-v2.pdf',
+    toNewTab: true,
   }
 ];

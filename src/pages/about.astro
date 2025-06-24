@@ -7,8 +7,8 @@ import "../styles/pages/about.css";
 import Card from "../components/Card.astro";
 ---
 
-<Layout page="about">
-  <Card title="About me">
+<Layout page="about" title="About Me">
+  <Card title="About Me">
     <p>
       I’m a web developer with over <strong>2 years of experience</strong> building
       end-to-end web solutions using modern technologies like React, Laravel (Blade),
@@ -32,17 +32,17 @@ import Card from "../components/Card.astro";
     </p>
   </Card>
 
-  <Card title="Skills & Tech">
-    <div class="pill-container padded">
-      {skills.map((skill) => <div class="pill-item">{skill}</div>)}
-    </div>
-  </Card>
-
-  <Card title="Experiences">
+  <Card title="Experiences" type="no-border">
     <Timeline timelineItems={experiences} />
   </Card>
 
-  <Card title="Educations">
+  <Card title="Educations" type="no-border">
     <Timeline timelineItems={educations} />
+  </Card>
+
+  <Card title="Skills & Tech" type="no-border">
+    <div class="pill-container padded">
+      {skills.map((skill) => <div class="pill-item">{skill}</div>)}
+    </div>
   </Card>
 </Layout>

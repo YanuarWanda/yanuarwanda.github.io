@@ -6,31 +6,24 @@ import "../styles/global.css";
 import "../styles/layouts/layout.css";
 import { NAVIGATION_ITEMS } from "../data/navigation";
 import { SITE_CONFIG } from "../data/site";
-import type { NavigationItem } from "../types";
 
 export interface LayoutProps {
-	siteTitle?: string;
-	description?: string;
-	image?: string;
-	navItems?: NavigationItem[];
 	page: string;
+	title: string;
 }
 
 const {
-	siteTitle = SITE_CONFIG.title,
-	description = SITE_CONFIG.description,
-	image = SITE_CONFIG.image,
-	navItems = NAVIGATION_ITEMS,
-	page = "home"
+	page = "home",
+	title = ""
 } = Astro.props as LayoutProps;
 ---
 
 <!doctype html>
 <html lang="en">
-	<Head title={siteTitle} description={description} image={image} />
+	<Head title={title}/>
 	<body>
 		<div class="container">
-			<Navigation navItems={navItems} />
+			<Navigation navItems={NAVIGATION_ITEMS} />
 			<main class="content">
 				<div class="content-header">
 					<div>portofolio / {page}</div>

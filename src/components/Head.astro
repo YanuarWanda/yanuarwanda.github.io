@@ -1,39 +1,37 @@
 ---
-import type { SiteConfig } from '../types';
 import { SITE_CONFIG } from '../data/site';
 
-const props: SiteConfig = {
-	title: Astro.props.title || SITE_CONFIG.title,
-	description: Astro.props.description || SITE_CONFIG.description,
-	image: Astro.props.image || SITE_CONFIG.image,
-	url: SITE_CONFIG.url + Astro.url.pathname,
-	author: SITE_CONFIG.author,
-	keywords: SITE_CONFIG.keywords,
-	theme: SITE_CONFIG.theme
-};
+export interface HeadProps {
+	title: string;
+}
+
+const {
+	title = ""
+} = Astro.props as HeadProps;
 ---
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="generator" content={Astro.generator} />
-	<meta name="description" content={props.description} />
-	<meta name="keywords" content={props.keywords.join(', ')} />
-	<title>{props.title}</title>
-	<link rel="canonical" href={props.url} />
-	<meta name="author" content={props.author} />
+	<meta name="description" content={SITE_CONFIG.description} />
+	<meta name="keywords" content={SITE_CONFIG.keywords.join(', ')} />
+	<meta name="author" content={SITE_CONFIG.author} />
 
-	{props.image && (
-		<meta property="og:image" content={props.image} />
-	)}
-	<meta property="og:title" content={props.title} />
-	<meta property="og:description" content={props.description} />
+	<meta property="og:image" content={SITE_CONFIG.image} />
+	<meta property="og:title" content={SITE_CONFIG.title} />
+	<meta property="og:description" content={SITE_CONFIG.description} />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content={props.url} />
+	<meta property="og:url" content={SITE_CONFIG.url} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={props.title} />
-	<meta name="twitter:description" content={props.description} />
+	<meta name="twitter:title" content={SITE_CONFIG.title} />
+	<meta name="twitter:description" content={SITE_CONFIG.description} />
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<title>{SITE_CONFIG.title} {title ? `| ${title}` : ""}</title>
 
 	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
 	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600&display=swap") as="style">

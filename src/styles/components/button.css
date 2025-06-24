@@ -16,7 +16,7 @@
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-medium);
   font-family: var(--font-family);
-  font-size: var(--font-size-smaller);
+  font-size: var(--font-size-body);
   font-weight: var(--font-weight-medium);
   text-decoration: none;
   cursor: pointer;

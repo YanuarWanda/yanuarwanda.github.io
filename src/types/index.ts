@@ -1,6 +1,7 @@
 export interface NavigationItem {
   text: string;
   href: string;
+  toNewTab: boolean;
 }
 
 export interface SiteConfig {
@@ -19,9 +20,11 @@ export interface TimelineProps {
   title: string;
   subtitle: string;
   description?: string;
+  points?: string[];
 }
 
 export interface CardProps {
   title: string;
   header?: string;
+  type: "default" | "no-border";
 }

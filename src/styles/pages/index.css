@@ -4,7 +4,7 @@
 }
 
 .quick-link-title {
-    font-size: var(--font-size-smaller);
+    font-size: var(--font-size-body);
 }
 
 .card:nth-child(2) {
@@ -14,7 +14,7 @@
 @media (min-width: 577px) {
     .content-container {
         grid-template-columns: auto auto;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     .card:first-child {
