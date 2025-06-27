@@ -1,8 +1,45 @@
 @import './theme.css';
 
-* {
-	font-family: var(--font-family);
+/* CSS Reset */
+
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+}
+
+html {
+	color-scheme: dark light;
+}
+
+img,
+picture,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+	font: inherit;
+}
+
+/* Globals */
+
+body {
+	background-color: var(--color-background);
+	font-family: var(--font-family);
+	font-size: var(--font-size-body);
+	font-weight: var(--font-weight-regular);
 }
 
 h1,
@@ -11,37 +48,17 @@ h3,
 h4,
 h5,
 h6 {
-	margin: var(--spacing-medium) 0;
+	font-family: var(--font-family-heading);
 }
 
 p {
-	font-size: var(--font-size-body);
-	margin: var(--spacing-medium) 0;
+	margin-top: 1rem;
 }
 
-article {
-	margin-top: var(--spacing-large);
+.bold {
+	font-weight: var(--font-weight-bold);
 }
 
-section {
-	margin-top: var(--spacing-large);
-}
-
-ul {
-	list-style-position: inside;
-	padding-left: var(--spacing-medium);
-}
-
-html,
-body {
+.m-0 {
 	margin: 0;
-	background-color: var(--color-background);
-	-webkit-font-smoothing: antialiased;
-	-moz-font-smoothing: antialiased;
-	-o-font-smoothing: antialiased;
-}
-
-:focus-visible {
-	outline: 2px solid var(--color-primary);
-	outline-offset: 2px;
 }

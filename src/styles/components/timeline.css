@@ -1,6 +1,5 @@
 .timeline-container {
     display: grid;
-    padding: 1rem 0;
     gap: var(--spacing-medium);
 }
 
@@ -21,24 +20,38 @@
 }
 
 .timeline-subtitle {
-    font-size: var(--font-size-body);
-    color: var(--color-text);
+    font-size: var(--font-size-small);
+    color: var(--color-text-secondary);
+}
+
+.timeline-description {
+    font-size: var(--font-size-small);
 }
 
 .timeline-description,
 .timeline-point-container {
-    margin-top: var(--spacing-small);
-    font-size: var(--font-size-body);
     max-height: 0px;
     margin: 0;
     overflow: hidden;
     transition: var(--transition-default);
 }
 
-.timeline-description.visible,
-.timeline-description.visible .timeline-point-container {
+.timeline-description.visible {
     max-height: 1000px;
     margin-top: 8px;
+}
+
+.timeline-description.visible .timeline-point-container {
+    max-height: 1000px;
+}
+
+.timeline-point-container {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.timeline-point {
+    margin-top: 1rem;
 }
 
 .timeline-arrow {
@@ -47,7 +60,7 @@
     display: inline-block;
     padding: 3px;
     position: absolute;
-    top: 24px;
+    top: 20px;
     right: 8px;
     height: 8px;
     width: 8px;
@@ -57,4 +70,10 @@
 
 .timeline-description.visible+.timeline-arrow {
     transform: rotate(45deg);
+}
+
+@media (min-width: 577px) {
+    .timeline-arrow {
+        top: 24px;
+    }
 }
