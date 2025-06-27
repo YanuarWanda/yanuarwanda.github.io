@@ -7,11 +7,6 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     toNewTab: false,
   },
   {
-    text: 'Blogs',
-    href: '/blogs',
-    toNewTab: false,
-  },
-  {
     text: 'Projects',
     href: '/projects',
     toNewTab: false,
