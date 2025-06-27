@@ -1,17 +1,17 @@
 ---
+import { experiences, educations, skills } from "../data/site";
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import Timeline from "../components/Timeline.astro";
-import { experiences, educations, skills } from "../data/site";
-import "../styles/components/pill.css";
 import "../styles/pages/about.css";
-import Card from "../components/Card.astro";
 ---
 
 <Layout page="about" title="About Me">
   <Card title="About Me">
-    <p>
-      I’m a web developer with over <strong>2 years of experience</strong> building
-      end-to-end web solutions using modern technologies like React, Laravel (Blade),
+    <p class="m-0">
+      I’m a web developer with over <strong class="bold"
+        >2 years of experience</strong
+      > building end-to-end web solutions using modern technologies like React, Laravel,
       and .NET. I enjoy turning ideas into polished, interactive experiences that
       not only look great but work smoothly across devices.
     </p>
@@ -32,15 +32,15 @@ import Card from "../components/Card.astro";
     </p>
   </Card>
 
-  <Card title="Experiences" type="no-border">
+  <Card title="Experiences">
     <Timeline timelineItems={experiences} />
   </Card>
 
-  <Card title="Educations" type="no-border">
+  <Card title="Educations">
     <Timeline timelineItems={educations} />
   </Card>
 
-  <Card title="Skills & Tech" type="no-border">
+  <Card title="Skills & Tech">
     <div class="pill-container padded">
       {skills.map((skill) => <div class="pill-item">{skill}</div>)}
     </div>

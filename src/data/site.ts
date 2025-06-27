@@ -13,8 +13,8 @@ export const SITE_CONFIG: SiteConfig = {
     "projects"
   ],
   theme: "dark",
-  version: "v0.0.2",
-  lastUpdated: "24.06.25"
+  version: "v0.0.3",
+  lastUpdated: "28.06.25"
 };
 
 export const experiences: TimelineProps[] = [
@@ -38,7 +38,6 @@ export const experiences: TimelineProps[] = [
       "Assisted the customer service team to improve the communication process with customers for general inquiries and to receive and update the status of complaints regarding products from customers by creating a WhatsApp-based chatbot.",
       "Assisted the sales team in sending promotional campaign messages periodically to thousands of customers and ensuring the message delivery process runs smoothly.",
       "Helped to improve the user experience of a chatbot by revamping the interface of chatbot interactions on the WhatsApp channel from text-based to button-based.",
-      "Maintained chatbot to ensure existing features run smoothly.",
       "Created and maintained chatbots for big multinational and Indonesian companies, enhancing communication efficiency and customer engagement across diverse sectors.",
       "These chatbots collectively served thousands of users, facilitating seamless interactions and driving positive user experiences.",
       "Tech and languages used: Javascript, C#, .NET"

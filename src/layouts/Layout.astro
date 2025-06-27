@@ -12,15 +12,12 @@ export interface LayoutProps {
 	title: string;
 }
 
-const {
-	page = "home",
-	title = ""
-} = Astro.props as LayoutProps;
+const { page = "home", title = "" } = Astro.props as LayoutProps;
 ---
 
 <!doctype html>
 <html lang="en">
-	<Head title={title}/>
+	<Head title={title} />
 	<body>
 		<div class="container">
 			<Navigation navItems={NAVIGATION_ITEMS} />

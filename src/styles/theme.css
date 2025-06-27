@@ -5,22 +5,21 @@
   --color-text-secondary: rgb(156 163 175);
   --color-background: #000;
   --color-border: #fff;
-  --color-border-secondary: rgb(156 163 175);
   --color-hover: rgba(255, 255, 255, 0.25);
   --color-active: rgba(255, 255, 255, 0.15);
-  --color-accent: #4a5568;
-  --color-success: #34D399;
-  --color-warning: #FBBF24;
-  --color-error: #EF4444;
 
   /* Spacing */
+  --spacing-xsmall: 0.25rem;
   --spacing-small: 0.5rem;
   --spacing-medium: 1rem;
   --spacing-large: 2rem;
   --spacing-xlarge: 4rem;
 
   /* Typography */
-  --font-family: 'Noto Sans Mono', monospace;
+  --font-family-special: 'Noto Sans', monospace;
+  --font-family-heading: 'Bitter', serif;
+  --font-family: 'Raleway', sans-serif;
+
   --font-size-display: clamp(4.5rem, 10vw, 10rem);
   --font-size-display2: clamp(3rem, 8vw, 6.5rem);
   --font-size-h1: clamp(2rem, 6vw, 4rem);
@@ -32,14 +31,10 @@
   --font-size-body: clamp(0.875rem, 2vw, 1.25rem);
   --font-size-small: clamp(0.75rem, 1.5vw, 0.875rem);
   --font-size-smaller: clamp(0.625rem, 1.25vw, 0.75rem);
+
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 600;
-
-  /* Shadows */
-  --shadow-small: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
   /* Border Radius */
   --border-radius-small: 0.25rem;

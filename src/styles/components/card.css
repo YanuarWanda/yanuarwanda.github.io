@@ -1,9 +1,6 @@
-.card {
-    padding: 1rem 0;
-}
-
 .card-title {
-    font-size: var(--font-size-body);
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
     display: grid;
     grid-template-columns: 8px auto 1fr;
     align-items: center;
@@ -25,14 +22,18 @@
 }
 
 .card-header {
-    font-size: var(--font-size-h6);
+    font-size: var(--font-size-h5);
+}
+
+.card-content {
+    padding-top: 1rem;
 }
 
 @media (min-width: 577px) {
     .card {
-        padding: 1.5rem;
         border: 1px solid var(--color-border);
         border-radius: var(--border-radius-medium);
+        padding: 1rem;
     }
 
     .card.card-no-border {
