@@ -3,6 +3,11 @@
     gap: var(--spacing-medium);
 }
 
+.timeline-link {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
 .timeline-item {
     border-left: 1px solid var(--color-border);
     margin-left: var(--spacing-small);
@@ -66,6 +71,12 @@
     width: 8px;
     transform: rotate(-45deg);
     transition: var(--transition-default);
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 20px;
+    right: 8px;
 }
 
 .timeline-description.visible+.timeline-arrow {

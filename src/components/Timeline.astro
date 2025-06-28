@@ -1,5 +1,5 @@
 ---
-import "../styles/components/pill.css";
+import "../styles/components/timeline.css";
 import { type TimelineProps } from "../types";
 import TimelineItem from "./TimelineItem.astro";
 
@@ -10,14 +10,27 @@ const { timelineItems } = Astro.props as {
 
 <div class="timeline-container">
     {
-        timelineItems.map((timeline) => (
-            <TimelineItem
-                title={timeline.title}
-                subtitle={timeline.subtitle}
-                description={timeline.description}
-                points={timeline.points}
-            />
-        ))
+        timelineItems.map((timeline) =>
+            timeline.url ? (
+                <a href={timeline.url} class="timeline-link">
+                    <TimelineItem
+                        title={timeline.title}
+                        subtitle={timeline.subtitle}
+                        description={timeline.description}
+                        points={timeline.points}
+                        url={timeline.url}
+                    />
+                </a>
+            ) : (
+                <TimelineItem
+                    title={timeline.title}
+                    subtitle={timeline.subtitle}
+                    description={timeline.description}
+                    points={timeline.points}
+                    url={timeline.url}
+                />
+            ),
+        )
     }
 </div>
 
