@@ -13,7 +13,7 @@ export const SITE_CONFIG: SiteConfig = {
     "projects"
   ],
   theme: "dark",
-  version: "v0.0.3",
+  version: "v0.0.4",
   lastUpdated: "28.06.25"
 };
 
