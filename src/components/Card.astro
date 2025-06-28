@@ -6,9 +6,9 @@ const { title, header, type = "no-border" } = Astro.props as CardProps;
 ---
 
 <div class=`card card-${type}`>
-    <h1 class="card-title">{title}</h1>
+    <h2 class="card-title">{title}</h2>
     <div class="card-content">
-        {header ? <h2 class="card-header">{header}</h2> : null}
+        {header ? <h3 class="card-header">{header}</h3> : null}
         <slot />
     </div>
 </div>

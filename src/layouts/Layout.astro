@@ -7,12 +7,17 @@ import "../styles/layouts/layout.css";
 import { NAVIGATION_ITEMS } from "../data/navigation";
 import { SITE_CONFIG } from "../data/site";
 
+export interface Breadcrumb {
+	text: string;
+	url?: string;
+}
+
 export interface LayoutProps {
-	page: string;
+	page: Breadcrumb[];
 	title: string;
 }
 
-const { page = "home", title = "" } = Astro.props as LayoutProps;
+const { page = [], title = "" } = Astro.props as LayoutProps;
 ---
 
 <!doctype html>
@@ -23,7 +28,21 @@ const { page = "home", title = "" } = Astro.props as LayoutProps;
 			<Navigation navItems={NAVIGATION_ITEMS} />
 			<main class="content">
 				<div class="content-header">
-					<div>portofolio / {page}</div>
+					<div>
+						<a href="/">portofolio</a>
+						{
+							page.map((p) => (
+								<>
+									{" / "}
+									{p.url ? (
+										<a href={p.url}>{p.text}</a>
+									) : (
+										p.text
+									)}
+								</>
+							))
+						}
+					</div>
 					<div>{SITE_CONFIG.version} {SITE_CONFIG.lastUpdated}</div>
 				</div>
 				<div class="content-container">

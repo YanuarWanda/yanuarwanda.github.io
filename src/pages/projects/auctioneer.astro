@@ -1,0 +1,100 @@
+---
+import Layout, { Breadcrumb } from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import { Image } from "astro:assets";
+import screenshot1 from "../../assets/images/auctioneer-1.png";
+import "../../styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+    {
+        text: "projects",
+        url: "/projects",
+    },
+    {
+        text: "auctioneer",
+    },
+];
+---
+
+<Layout page={breadcrumb} title="Auctioneer">
+    <h1 class="project-title">Auctioneer</h1>
+    <Image
+        src={screenshot1}
+        alt="Screenshot of Auctioneer Login Page"
+        loading="lazy"
+        class="project-image"
+    />
+    <p class="m-0">
+        A document automation platform for project bidding letters
+    </p>
+
+    <Card title="The Problem">
+        <p class="m-0">
+            The client faced a repetitive and time-consuming task: generating
+            formal tender letters for each project bid. These letters often
+            spanned multiple pages, and required strict formatting. Manual
+            creation could take days, leaving room for human error and
+            inconsistencies.
+        </p>
+    </Card>
+
+    <Card title="The Solution">
+        <p class="m-0">
+            A custom web application that manages company project data and
+            automatically generates tender letters in both Microsoft Word and
+            PDF formats. The system used pre-defined templates and populated
+            them dynamically with the required project data.
+        </p>
+    </Card>
+
+    <Card title="Outcome">
+        <p class="m-0">
+            The application reduced the time required to produce tender letters
+            from days to just a few hours, ensuring consistency with templates
+            and significantly minimizing formatting errors.
+        </p>
+    </Card>
+
+    <Card title="Technical Highlights">
+        <ul class="list-indented">
+            <li>
+                Tech Stack
+                <ul class="list-indented">
+                    <li><a href="https://vuejs.org/">Vue 3</a></li>
+                    <li><a href="https://laravel.com">Laravel</a></li>
+                    <li><a href="https://www.mysql.com/">MySQL</a></li>
+                </ul>
+            </li>
+            <li>
+                Key Tools
+                <ul class="list-indented">
+                    <li>
+                        <a href="https://github.com/guigrpa/docx-templates"
+                            >docx-templates</a
+                        > for Word document generation
+                    </li>
+                    <li>
+                        <a href="https://github.com/spatie/browsershot">
+                            browsershot
+                        </a>
+                        for generating PDFs via headless Chrome
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Features Implemented
+                <ul class="list-indented">
+                    <li>
+                        Admin dashboard for managing company projects and letter
+                        templates.
+                    </li>
+                    <li>
+                        Template-based document generation with support for
+                        Custom fonts, dynamic headers/footers, and image
+                        insertion.
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </Card>
+</Layout>

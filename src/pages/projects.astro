@@ -1,7 +1,18 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout, { type Breadcrumb } from "../layouts/Layout.astro";
+import Timeline from "../components/Timeline.astro";
+import Card from "../components/Card.astro";
+import { projects } from "../data/site";
+
+const breadcrumb: Breadcrumb[] = [
+	{
+		text: "projects",
+	},
+];
 ---
 
-<Layout page="projects" title="Projects">
-	<h1>Coming soon...</h1>
+<Layout page={breadcrumb} title="Projects">
+	<Card title="Projects">
+		<Timeline timelineItems={projects} />
+	</Card>
 </Layout>

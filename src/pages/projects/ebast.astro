@@ -1,0 +1,114 @@
+---
+import Layout, { Breadcrumb } from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import { Image } from "astro:assets";
+import screenshot1 from "../../assets/images/ebast-2.png";
+import "../../styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+    {
+        text: "projects",
+        url: "/projects",
+    },
+    {
+        text: "ebast",
+    },
+];
+---
+
+<Layout page={breadcrumb} title="eBAST">
+    <h1 class="project-title">eBAST</h1>
+    <Image
+        src={screenshot1}
+        alt="Screenshot of eBAST Home Page"
+        loading="lazy"
+        class="project-image"
+    />
+    <p class="m-0">A platform for generating project handover reports (BAST)</p>
+
+    <Card title="The Problem">
+        <p class="m-0">
+            After project completion, teams had to manually compile large
+            reports containing data and numerous images into formatted Word
+            documents. This was time-intensive and often prone to formatting
+            errors, especially when handling a high volume of data and
+            inconsistent image sizes.
+        </p>
+    </Card>
+
+    <Card title="The Solution">
+        <p class="m-0">
+            A web application to streamline report creation. It allowed users to
+            input project data and upload images, which would then be compiled
+            into a structured handover report document (BAST). Automation
+            significantly reduced human error and production time.
+        </p>
+    </Card>
+
+    <Card title="Outcome">
+        <p class="m-0">
+            The system cut the report creation time from days to just a few
+            hours, while producing outputs that were consistent with the
+            required templates and far less prone to manual errors.
+        </p>
+    </Card>
+
+    <Card title="Technical Highlights">
+        <ul class="list-indented">
+            <li>
+                Tech Stack
+                <ul class="list-indented">
+                    <li>
+                        <a href="https://laravel.com/docs/12.x/blade"
+                            >Laravel Blade</a
+                        >
+                    </li>
+                    <li><a href="https://laravel.com">Laravel</a></li>
+                    <li><a href="https://www.mysql.com/">MySQL</a></li>
+                </ul>
+            </li>
+            <li>
+                Key Tools
+                <ul class="list-indented">
+                    <li>
+                        <a href="https://github.com/guigrpa/docx-templates"
+                            >docx-templates</a
+                        > for Word document generation
+                    </li>
+                    <li>
+                        <a href="https://github.com/fengyuanchen/cropperjs"
+                            >cropperjs</a
+                        > for maintaining consistent image aspect ratios
+                    </li>
+                    <li>
+                        <a href="https://github.com/spatie/image-optimizer"
+                            >Image optimizer</a
+                        > to reduce file size and speed up report generation
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Features Implemented
+                <ul class="list-indented">
+                    <li>
+                        Admin dashboard for managing company data and letter
+                        templates.
+                    </li>
+                    <li>Image cropping and compression before upload</li>
+                    <li>
+                        Dynamic Word document generation with consistent styling
+                        and structure
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </Card>
+</Layout>
+
+<!-- - **Key Tools**:
+    - [`cropperjs`](https://github.com/fengyuanchen/cropperjs) for maintaining consistent image aspect ratios
+    - Image optimization pipeline to reduce file size and speed up report generation
+- **Features Implemented**:
+    - Form-driven data collection for report contents
+    - Image cropping and compression before upload
+    - Dynamic Word document generation with consistent styling and structure -->

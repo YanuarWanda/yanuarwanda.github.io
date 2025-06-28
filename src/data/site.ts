@@ -13,7 +13,7 @@ export const SITE_CONFIG: SiteConfig = {
     "projects"
   ],
   theme: "dark",
-  version: "v0.0.3",
+  version: "v0.0.4",
   lastUpdated: "28.06.25"
 };
 
@@ -49,6 +49,23 @@ export const educations: TimelineProps[] = [
   {
     title: "Bachelor of Informatic Engineering",
     subtitle: "UNIKOM Indonesia • 2025"
+  }
+]
+
+export const projects: TimelineProps[] = [
+  {
+    title: "Auctioneer",
+    subtitle: "Document automation platform for project bidding letters",
+    url: "/projects/auctioneer"
+  },
+  {
+    title: "eBAST",
+    subtitle: "Platform for generating project handover reports (BAST)",
+    url: "/projects/ebast"
+  },
+  {
+    title: "yanuarwanda.github.io",
+    subtitle: "My personal website"
   }
 ]
 

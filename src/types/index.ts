@@ -21,6 +21,7 @@ export interface TimelineProps {
   subtitle: string;
   description?: string;
   points?: string[];
+  url?: string;
 }
 
 export interface CardProps {
