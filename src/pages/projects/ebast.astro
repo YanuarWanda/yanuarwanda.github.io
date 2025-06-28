@@ -1,12 +1,22 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout, { Breadcrumb } from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
 import { Image } from "astro:assets";
 import screenshot1 from "../../assets/images/ebast-2.png";
 import "../../styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+    {
+        text: "projects",
+        url: "/projects",
+    },
+    {
+        text: "ebast",
+    },
+];
 ---
 
-<Layout page="projects / ebast" title="eBAST">
+<Layout page={breadcrumb} title="eBAST">
     <h1 class="project-title">eBAST</h1>
     <Image
         src={screenshot1}

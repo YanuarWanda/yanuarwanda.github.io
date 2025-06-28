@@ -1,12 +1,18 @@
 ---
 import { experiences, educations, skills } from "../data/site";
 import Card from "../components/Card.astro";
-import Layout from "../layouts/Layout.astro";
+import Layout, { type Breadcrumb } from "../layouts/Layout.astro";
 import Timeline from "../components/Timeline.astro";
 import "../styles/pages/about.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "about",
+  },
+];
 ---
 
-<Layout page="about" title="About Me">
+<Layout page={breadcrumb} title="About Me">
   <Card title="About Me">
     <p class="m-0">
       I’m a web developer with over <strong class="bold"

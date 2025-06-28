@@ -1,12 +1,22 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout, { Breadcrumb } from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
 import { Image } from "astro:assets";
 import screenshot1 from "../../assets/images/auctioneer-1.png";
 import "../../styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+    {
+        text: "projects",
+        url: "/projects",
+    },
+    {
+        text: "auctioneer",
+    },
+];
 ---
 
-<Layout page="projects / auctioneer" title="Auctioneer">
+<Layout page={breadcrumb} title="Auctioneer">
     <h1 class="project-title">Auctioneer</h1>
     <Image
         src={screenshot1}
