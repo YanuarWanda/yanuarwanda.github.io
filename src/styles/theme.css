@@ -47,3 +47,16 @@
   --transition-fast: all 0.1s ease-in-out;
   --transition-slow: all 0.3s ease-in-out;
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Colors */
+    --color-primary: #99C9FF;
+    --color-text: #111;
+    --color-text-secondary: rgb(100 110 125);
+    --color-background: #fff;
+    --color-border: #000;
+    --color-hover: rgba(0, 0, 0, 0.08);
+    --color-active: rgba(0, 0, 0, 0.12);
+  }
+}
