@@ -1,8 +1,10 @@
 ---
-import Layout, { Breadcrumb } from "../../layouts/Layout.astro";
+import Layout, { type Breadcrumb } from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
-import { Image } from "astro:assets";
+import ImageGallery, { type Image } from "../../components/ImageGallery.astro";
 import screenshot1 from "../../assets/images/auctioneer-1.png";
+import screenshot2 from "../../assets/images/auctioneer-2.png";
+import screenshot3 from "../../assets/images/auctioneer-3.png";
 import "../../styles/pages/projects.css";
 
 const breadcrumb: Breadcrumb[] = [
@@ -14,16 +16,26 @@ const breadcrumb: Breadcrumb[] = [
         text: "auctioneer",
     },
 ];
+
+const images: Image[] = [
+    {
+        src: screenshot1,
+        alt: "Screenshot of Auctioneer Login Page",
+    },
+    {
+        src: screenshot2,
+        alt: "Screenshot of Auctioneer Home Page",
+    },
+    {
+        src: screenshot3,
+        alt: "Screenshot of Auctioneer Item Page",
+    },
+];
 ---
 
 <Layout page={breadcrumb} title="Auctioneer">
     <h1 class="project-title">Auctioneer</h1>
-    <Image
-        src={screenshot1}
-        alt="Screenshot of Auctioneer Login Page"
-        loading="lazy"
-        class="project-image"
-    />
+    <ImageGallery images={images} />
     <p class="m-0">
         A document automation platform for project bidding letters
     </p>

@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import "swiper/css";
+import "swiper/css/pagination";
+import "../styles/components/imageGallery.css";
+
+export interface Image {
+    src: ImageMetadata;
+    alt: string;
+}
+
+export interface ImageGalleryProps {
+    images: Image[];
+}
+
+const { images } = Astro.props as ImageGalleryProps;
+---
+
+<div class="swiper">
+    <div class="swiper-wrapper">
+        {
+            images.map((image) => (
+                <div class="swiper-slide">
+                    <figure>
+                        <Image
+                            src={image.src}
+                            alt={image.alt}
+                            loading="lazy"
+                            class="project-image"
+                        />
+                        <figcaption>{image.alt}</figcaption>
+                    </figure>
+                </div>
+            ))
+        }
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+<script>
+    import Swiper from "swiper";
+    import { Pagination } from "swiper/modules";
+
+    new Swiper(".swiper", {
+        modules: [Pagination],
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        autoHeight: true,
+    });
+</script>

@@ -7,6 +7,11 @@ export const NAVIGATION_ITEMS: NavigationItem[] = [
     toNewTab: false,
   },
   {
+    text: "Blogs",
+    href: "https://yanuarwanda.medium.com/",
+    toNewTab: true
+  },
+  {
     text: 'Projects',
     href: '/projects',
     toNewTab: false,

@@ -1,8 +1,9 @@
 ---
-import Layout, { Breadcrumb } from "../../layouts/Layout.astro";
+import Layout, { type Breadcrumb } from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
-import { Image } from "astro:assets";
-import screenshot1 from "../../assets/images/ebast-2.png";
+import ImageGallery, { type Image } from "../../components/ImageGallery.astro";
+import screenshot1 from "../../assets/images/ebast-1.png";
+import screenshot2 from "../../assets/images/ebast-2.png";
 import "../../styles/pages/projects.css";
 
 const breadcrumb: Breadcrumb[] = [
@@ -14,16 +15,22 @@ const breadcrumb: Breadcrumb[] = [
         text: "ebast",
     },
 ];
+
+const images: Image[] = [
+    {
+        src: screenshot1,
+        alt: "Screenshot of eBast Login Page",
+    },
+    {
+        src: screenshot2,
+        alt: "Screenshot of eBast Home Page",
+    },
+];
 ---
 
 <Layout page={breadcrumb} title="eBAST">
     <h1 class="project-title">eBAST</h1>
-    <Image
-        src={screenshot1}
-        alt="Screenshot of eBAST Home Page"
-        loading="lazy"
-        class="project-image"
-    />
+    <ImageGallery images={images} />
     <p class="m-0">A platform for generating project handover reports (BAST)</p>
 
     <Card title="The Problem">
@@ -104,11 +111,3 @@ const breadcrumb: Breadcrumb[] = [
         </ul>
     </Card>
 </Layout>
-
-<!-- - **Key Tools**:
-    - [`cropperjs`](https://github.com/fengyuanchen/cropperjs) for maintaining consistent image aspect ratios
-    - Image optimization pipeline to reduce file size and speed up report generation
-- **Features Implemented**:
-    - Form-driven data collection for report contents
-    - Image cropping and compression before upload
-    - Dynamic Word document generation with consistent styling and structure -->

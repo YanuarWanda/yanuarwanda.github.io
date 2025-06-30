@@ -1,7 +1,7 @@
 {
   "name": "yanuarwanda.github.io",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "dev": "astro dev",
     "dev:expose": "astro dev --host",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "astro": "^5.10.1",
-    "shiki": "^3.2.2"
+    "shiki": "^3.2.2",
+    "swiper": "^11.2.10"
   }
 }
