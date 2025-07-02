@@ -8,13 +8,13 @@ import { NAVIGATION_ITEMS } from "../data/navigation";
 import { SITE_CONFIG } from "../data/site";
 
 export interface Breadcrumb {
-	text: string;
-	url?: string;
+  text: string;
+  url?: string;
 }
 
 export interface LayoutProps {
-	page: Breadcrumb[];
-	title: string;
+  page: Breadcrumb[];
+  title: string;
 }
 
 const { page = [], title = "" } = Astro.props as LayoutProps;
@@ -22,34 +22,30 @@ const { page = [], title = "" } = Astro.props as LayoutProps;
 
 <!doctype html>
 <html lang="en">
-	<Head title={title} />
-	<body>
-		<div class="container">
-			<Navigation navItems={NAVIGATION_ITEMS} />
-			<main class="content">
-				<div class="content-header">
-					<div>
-						<a href="/">portofolio</a>
-						{
-							page.map((p) => (
-								<>
-									{" / "}
-									{p.url ? (
-										<a href={p.url}>{p.text}</a>
-									) : (
-										p.text
-									)}
-								</>
-							))
-						}
-					</div>
-					<div>{SITE_CONFIG.version} {SITE_CONFIG.lastUpdated}</div>
-				</div>
-				<div class="content-container">
-					<slot />
-				</div>
-			</main>
-			<Footer />
-		</div>
-	</body>
+  <Head title={title} />
+  <body>
+    <div class="container">
+      <Navigation navItems={NAVIGATION_ITEMS} />
+      <main class="content">
+        <div class="content-header">
+          <div>
+            <a href="/">portofolio</a>
+            {
+              page.map((p) => (
+                <>
+                  {" / "}
+                  {p.url ? <a href={p.url}>{p.text}</a> : p.text}
+                </>
+              ))
+            }
+          </div>
+          <div>{SITE_CONFIG.version} {SITE_CONFIG.lastUpdated}</div>
+        </div>
+        <div class="content-container">
+          <slot />
+        </div>
+      </main>
+      <Footer />
+    </div>
+  </body>
 </html>

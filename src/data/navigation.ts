@@ -1,24 +1,24 @@
-import type { NavigationItem } from '../types';
+import type { NavigationItem } from "../types";
 
 export const NAVIGATION_ITEMS: NavigationItem[] = [
   {
-    text: 'About',
-    href: '/about',
+    text: "About",
+    href: "/about",
     toNewTab: false,
   },
   {
     text: "Blogs",
     href: "https://yanuarwanda.medium.com/",
-    toNewTab: true
+    toNewTab: true,
   },
   {
-    text: 'Projects',
-    href: '/projects',
+    text: "Projects",
+    href: "/projects",
     toNewTab: false,
   },
   {
-    text: 'Resume',
-    href: '/documents/resume-v2.pdf',
+    text: "Resume",
+    href: "/documents/resume-v2.pdf",
     toNewTab: true,
-  }
+  },
 ];

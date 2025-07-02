@@ -1,12 +1,12 @@
 :root {
   /* Colors */
   --color-primary: #0070f3;
-  --color-text: #eee;
-  --color-text-secondary: rgb(156 163 175);
-  --color-background: #000;
-  --color-border: #fff;
-  --color-hover: rgba(255, 255, 255, 0.25);
-  --color-active: rgba(255, 255, 255, 0.15);
+  --color-text: #eeeeee;
+  --color-text-secondary: #9ca3af;
+  --color-background: #000000;
+  --color-border: #ffffff;
+  --color-hover: #ffffff40;
+  --color-active: #ffffff26;
 
   /* Spacing */
   --spacing-xsmall: 0.25rem;
@@ -16,9 +16,9 @@
   --spacing-xlarge: 4rem;
 
   /* Typography */
-  --font-family-special: 'Noto Sans', monospace;
-  --font-family-heading: 'Bitter', serif;
-  --font-family: 'Raleway', sans-serif;
+  --font-family-special: "Noto Sans", monospace;
+  --font-family-heading: "Bitter", serif;
+  --font-family: "Raleway", sans-serif;
 
   --font-size-display: clamp(4.5rem, 10vw, 10rem);
   --font-size-display2: clamp(3rem, 8vw, 6.5rem);
@@ -51,12 +51,12 @@
 @media (prefers-color-scheme: light) {
   :root {
     /* Colors */
-    --color-primary: #99C9FF;
-    --color-text: #111;
-    --color-text-secondary: rgb(100 110 125);
-    --color-background: #fff;
-    --color-border: #000;
-    --color-hover: rgba(0, 0, 0, 0.08);
-    --color-active: rgba(0, 0, 0, 0.12);
+    --color-primary: #99c9ff;
+    --color-text: #111111;
+    --color-text-secondary: #646e7d;
+    --color-background: #ffffff;
+    --color-border: #000000;
+    --color-hover: #00000014;
+    --color-active: #0000001f;
   }
 }

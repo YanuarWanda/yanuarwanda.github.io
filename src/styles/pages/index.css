@@ -1,15 +1,15 @@
 .content-container {
-    display: grid;
-    align-items: baseline;
-    gap: 1rem;
+  display: grid;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 .card:nth-child(2) {
-    order: 2;
+  order: 2;
 }
 
 @media (min-width: 577px) {
-    .content-container {
-        gap: 2rem;
-    }
+  .content-container {
+    gap: 2rem;
+  }
 }
