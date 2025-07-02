@@ -4,50 +4,50 @@ import { type TimelineProps } from "../types";
 import TimelineItem from "./TimelineItem.astro";
 
 const { timelineItems } = Astro.props as {
-    timelineItems: TimelineProps[];
+  timelineItems: TimelineProps[];
 };
 ---
 
 <div class="timeline-container">
-    {
-        timelineItems.map((timeline) =>
-            timeline.url ? (
-                <a href={timeline.url} class="timeline-link">
-                    <TimelineItem
-                        title={timeline.title}
-                        subtitle={timeline.subtitle}
-                        description={timeline.description}
-                        points={timeline.points}
-                        url={timeline.url}
-                    />
-                </a>
-            ) : (
-                <TimelineItem
-                    title={timeline.title}
-                    subtitle={timeline.subtitle}
-                    description={timeline.description}
-                    points={timeline.points}
-                    url={timeline.url}
-                />
-            ),
-        )
-    }
+  {
+    timelineItems.map((timeline) =>
+      timeline.url ? (
+        <a href={timeline.url} class="timeline-link">
+          <TimelineItem
+            title={timeline.title}
+            subtitle={timeline.subtitle}
+            description={timeline.description}
+            points={timeline.points}
+            url={timeline.url}
+          />
+        </a>
+      ) : (
+        <TimelineItem
+          title={timeline.title}
+          subtitle={timeline.subtitle}
+          description={timeline.description}
+          points={timeline.points}
+          url={timeline.url}
+        />
+      ),
+    )
+  }
 </div>
 
 <script>
-    const containerEl = document.querySelector(".timeline-container");
-    if (containerEl) {
-        containerEl.addEventListener("click", (e) => {
-            const currentEl = e.target as HTMLDivElement;
-            if (!currentEl) return;
+  const containerEl = document.querySelector(".timeline-container");
+  if (containerEl) {
+    containerEl.addEventListener("click", (e) => {
+      const currentEl = e.target as HTMLDivElement;
+      if (!currentEl) return;
 
-            let itemEl = currentEl.closest(".timeline-item");
-            if (!itemEl) return;
+      const itemEl = currentEl.closest(".timeline-item");
+      if (!itemEl) return;
 
-            let descriptionEl = itemEl.querySelector(".timeline-description");
-            if (!descriptionEl) return;
+      const descriptionEl = itemEl.querySelector(".timeline-description");
+      if (!descriptionEl) return;
 
-            descriptionEl?.classList.toggle("visible");
-        });
-    }
+      descriptionEl?.classList.toggle("visible");
+    });
+  }
 </script>

@@ -2,17 +2,17 @@
 import Layout, { type Breadcrumb } from "../layouts/Layout.astro";
 import Timeline from "../components/Timeline.astro";
 import Card from "../components/Card.astro";
-import { projects } from "../data/site";
+import { projects } from "../data/projects";
 
 const breadcrumb: Breadcrumb[] = [
-	{
-		text: "projects",
-	},
+  {
+    text: "projects",
+  },
 ];
 ---
 
 <Layout page={breadcrumb} title="Projects">
-	<Card title="Projects">
-		<Timeline timelineItems={projects} />
-	</Card>
+  <Card title="Projects">
+    <Timeline timelineItems={projects} />
+  </Card>
 </Layout>

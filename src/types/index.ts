@@ -27,5 +27,5 @@ export interface TimelineProps {
 export interface CardProps {
   title: string;
   header?: string;
-  type: "default" | "no-border";
+  bordered?: boolean;
 }

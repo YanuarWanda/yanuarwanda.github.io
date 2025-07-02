@@ -15,25 +15,7 @@ const { navItems = NAVIGATION_ITEMS } = Astro.props as {
 
 const currentPath = Astro.url.pathname;
 
-const isActive = (itemHref: string) => {
-  if (
-    itemHref === "/" &&
-    (currentPath === "/" || currentPath === "/index.html")
-  ) {
-    return true;
-  }
-
-  if (itemHref !== "/") {
-    return (
-      currentPath === itemHref ||
-      currentPath.startsWith(`${itemHref}/`) ||
-      currentPath === `${itemHref}.html` ||
-      currentPath === `${itemHref}/index.html`
-    );
-  }
-
-  return false;
-};
+import { isActive } from "../utils/navigation";
 ---
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -61,6 +43,7 @@ const isActive = (itemHref: string) => {
           target="_blank"
           rel="noopener noreferrer"
           class="button"
+          aria-label="Visit Yanuar Wanda's GitHub profile"
         >
           <GithubIcon />
         </a>
@@ -69,6 +52,7 @@ const isActive = (itemHref: string) => {
           target="_blank"
           rel="noopener noreferrer"
           class="button"
+          aria-label="Visit Yanuar Wanda's LinkedIn profile"
         >
           <LinkedInIcon />
         </a>
@@ -77,6 +61,7 @@ const isActive = (itemHref: string) => {
           target="_blank"
           rel="noopener noreferrer"
           class="button"
+          aria-label="Send an email to Yanuar Wanda"
         >
           <EmailIcon />
         </a>
@@ -100,9 +85,9 @@ const isActive = (itemHref: string) => {
         <li role="listitem">
           <a
             href={item.href}
-            class={`nav-link ${isActive(item.href) ? "active" : ""}`}
+            class={`nav-link ${isActive(item.href, currentPath) ? "active" : ""}`}
             aria-label={`Go to ${item.text} section`}
-            aria-current={isActive(item.href) ? "page" : undefined}
+            aria-current={isActive(item.href, currentPath) ? "page" : undefined}
             target={item.toNewTab ? "_blank" : ""}
           >
             {item.text}
