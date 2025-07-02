@@ -3,33 +3,32 @@ import { type TimelineProps } from "../types";
 import ExternalLinkIcon from "../assets/svg/external-link.svg";
 
 const {
-    title,
-    subtitle,
-    description,
-    points = [],
-    url,
+  title,
+  subtitle,
+  description,
+  points = [],
+  url,
 } = Astro.props as TimelineProps;
 ---
-<div class="timeline-item">
-    <h2 class="timeline-title">{title}</h2>
-    <h3 class="timeline-subtitle">{subtitle}</h3>
-    {
-        (description || points.length > 0) && (
-            <div class="timeline-description">
-                {description}
 
-                <ul class="timeline-point-container">
-                    {points.map((point) => (
-                        <li class="timeline-point">{point}</li>
-                    ))}
-                </ul>
-            </div>
-            <i class="timeline-arrow" />
-        )
-    }
-    {
-        url && (
-            <ExternalLinkIcon class="timeline-icon" />
-        )
-    }
+<div class="timeline-item">
+  <h2 class="timeline-title">{title}</h2>
+  <h3 class="timeline-subtitle">{subtitle}</h3>
+  {
+    (description || points.length > 0) && (
+      <>
+        <div class="timeline-description">
+          {description}
+
+          <ul class="timeline-point-container">
+            {points.map((point) => (
+              <li class="timeline-point">{point}</li>
+            ))}
+          </ul>
+        </div>
+        <i class="timeline-arrow" />
+      </>
+    )
+  }
+  {url && <ExternalLinkIcon class="timeline-icon" />}
 </div>
