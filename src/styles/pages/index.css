@@ -1,15 +1,16 @@
 .content-container {
   display: grid;
   align-items: baseline;
-  gap: 1rem;
+  gap: var(--spacing-m);
 }
 
-.card:nth-child(2) {
-  order: 2;
+.links {
+  display: grid;
+  gap: var(--spacing-m);
 }
 
-@media (min-width: 577px) {
-  .content-container {
-    gap: 2rem;
-  }
+.button-container {
+  display: flex;
+  gap: var(--spacing-m);
+  flex-wrap: wrap;
 }

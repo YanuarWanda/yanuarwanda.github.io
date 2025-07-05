@@ -1,6 +1,6 @@
 .pill-container {
   display: flex;
-  gap: var(--spacing-small);
+  gap: var(--spacing-s);
   flex-wrap: wrap;
 }
 
@@ -10,8 +10,8 @@
 
 .pill-item {
   font-size: var(--font-size-small);
-  padding: var(--spacing-small);
+  padding: var(--spacing-s);
   background-color: var(--color-hover);
   border: 1px solid var(--color-text);
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-m);
 }

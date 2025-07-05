@@ -1,20 +1,17 @@
 .container {
-  margin: 0 auto;
-  color: var(--color-text);
   max-width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 48px;
-  transition: var(--transition-default);
+  grid-template-rows: 1fr auto;
 }
 
 .content {
   width: 100%;
-  margin-top: 93px;
+  margin-top: 96px;
 }
 
 .content-header {
-  padding: 0.5rem 1rem;
+  padding: var(--spacing-s) var(--spacing-m);
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
@@ -28,8 +25,6 @@
 
 @media (min-width: 577px) {
   .container {
-    min-height: 100vh;
-    display: grid;
     grid-template-columns: 192px 1fr;
     grid-template-rows: 1fr;
   }
