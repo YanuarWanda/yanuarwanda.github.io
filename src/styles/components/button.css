@@ -1,27 +1,20 @@
 /* Base */
-.button-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-medium);
-  margin-top: var(--spacing-medium);
-}
-
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: var(--spacing-s);
+  padding: var(--spacing-s) var(--spacing-m);
   background-color: transparent;
   color: var(--color-text);
-  border: 1px solid var(--color-border);
-  border-radius: var(--border-radius-medium);
-  font-family: var(--font-family);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-medium);
+  border-radius: var(--border-radius-m);
   text-decoration: none;
   cursor: pointer;
-  transition: var(--transition-default);
+}
+
+.button:focus-visible {
+  outline: none;
+  outline-offset: 3px;
 }
 
 .button svg {
@@ -29,32 +22,42 @@
   height: var(--font-size-body);
 }
 
-.button:hover,
-.button:active,
-.button:focus,
-.button:focus-visible {
+/* Primary */
+.button-primary {
+  background-color: var(--color-primary);
+}
+
+.button-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.button-primary:active,
+.button-primary:focus,
+.button-primary:focus-visible {
+  background-color: var(--color-primary-active);
+}
+
+.button-primary:focus-visible {
+  outline: 1px solid var(--color-primary-active);
+}
+
+/* Secondary */
+.button-secondary {
+  border: 1px solid var(--color-border);
+}
+
+.button-secondary:hover {
   border: 1px solid var(--color-primary);
   color: var(--color-primary);
 }
 
-.button:focus-visible {
-  outline: 1px solid var(--color-primary);
-  outline-offset: 3px;
+.button-secondary:active,
+.button-secondary:focus,
+.button-secondary:focus-visible {
+  border: 1px solid var(--color-primary-hover);
+  color: var(--color-primary-hover);
 }
 
-/* Variants */
-
-.button-primary {
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  border: none;
-}
-
-.button-primary:hover,
-.button-primary:active,
-.button-primary:focus,
-.button-primary:focus-visible {
-  border: 0;
-  color: var(--color-text);
-  opacity: 0.9;
+.button-secondary:focus-visible {
+  outline: 1px solid var(--color-primary-hover);
 }

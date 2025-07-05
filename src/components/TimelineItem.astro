@@ -1,50 +1,36 @@
 ---
 import { type TimelineProps } from "../types";
+import ExternalLinkIcon from "../assets/svg/external-link.svg";
 
 const {
-    title,
-    subtitle,
-    description,
-    points = [],
-    url,
+  title,
+  subtitle,
+  description,
+  points = [],
+  url,
 } = Astro.props as TimelineProps;
+
+const isExpandable = description || points.length > 0;
 ---
+
 <div class="timeline-item">
+  <div class="timeline-header">
     <h2 class="timeline-title">{title}</h2>
     <h3 class="timeline-subtitle">{subtitle}</h3>
-    {
-        (description || points.length > 0) && (
-            <div class="timeline-description">
-                {description}
+    {isExpandable && <i class="timeline-arrow" />}
+    {url && <ExternalLinkIcon class="timeline-icon" />}
+  </div>
+  {
+    isExpandable && (
+      <div class="timeline-description">
+        {description}
 
-                <ul class="timeline-point-container">
-                    {points.map((point) => (
-                        <li class="timeline-point">{point}</li>
-                    ))}
-                </ul>
-            </div>
-            <i class="timeline-arrow" />
-        )
-    }
-    {
-        url && (
-            <svg
-                class="timeline-icon"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M20 5H8V9H6V3H22V21H6V15H8V19H20V5Z"
-                    fill="currentColor"
-                />
-                <path
-                    d="M13.0743 16.9498L11.6601 15.5356L14.1957 13H2V11H14.1956L11.6601 8.46451L13.0743 7.05029L18.024 12L13.0743 16.9498Z"
-                    fill="currentColor"
-                />
-            </svg>
-        )
-    }
+        <ul class="timeline-point-container">
+          {points.map((point) => (
+            <li class="timeline-point">{point}</li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
 </div>

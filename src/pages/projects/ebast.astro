@@ -1,113 +1,110 @@
 ---
 import Layout, { type Breadcrumb } from "../../layouts/Layout.astro";
 import Card from "../../components/Card.astro";
-import ImageGallery, { type Image } from "../../components/ImageGallery.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "../../components/ImageGallery.astro";
 import screenshot1 from "../../assets/images/ebast-1.png";
 import screenshot2 from "../../assets/images/ebast-2.png";
 import "../../styles/pages/projects.css";
 
 const breadcrumb: Breadcrumb[] = [
-    {
-        text: "projects",
-        url: "/projects",
-    },
-    {
-        text: "ebast",
-    },
+  {
+    text: "projects",
+    url: "/projects",
+  },
+  {
+    text: "ebast",
+  },
 ];
 
-const images: Image[] = [
-    {
-        src: screenshot1,
-        alt: "Screenshot of eBast Login Page",
-    },
-    {
-        src: screenshot2,
-        alt: "Screenshot of eBast Home Page",
-    },
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Screenshot of eBast Login Page",
+  },
+  {
+    src: screenshot2,
+    alt: "Screenshot of eBast Home Page",
+  },
 ];
 ---
 
 <Layout page={breadcrumb} title="eBAST">
-    <h1 class="project-title">eBAST</h1>
-    <ImageGallery images={images} />
-    <p class="m-0">A platform for generating project handover reports (BAST)</p>
+  <h1 class="project-title">eBAST</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">A platform for generating project handover reports (BAST)</p>
 
-    <Card title="The Problem">
-        <p class="m-0">
-            After project completion, teams had to manually compile large
-            reports containing data and numerous images into formatted Word
-            documents. This was time-intensive and often prone to formatting
-            errors, especially when handling a high volume of data and
-            inconsistent image sizes.
-        </p>
-    </Card>
+  <Card title="The Problem">
+    <p class="m-0">
+      After project completion, teams had to manually compile large reports
+      containing data and numerous images into formatted Word documents. This
+      was time-intensive and often prone to formatting errors, especially when
+      handling a high volume of data and inconsistent image sizes.
+    </p>
+  </Card>
 
-    <Card title="The Solution">
-        <p class="m-0">
-            A web application to streamline report creation. It allowed users to
-            input project data and upload images, which would then be compiled
-            into a structured handover report document (BAST). Automation
-            significantly reduced human error and production time.
-        </p>
-    </Card>
+  <Card title="The Solution">
+    <p class="m-0">
+      A web application to streamline report creation. It allowed users to input
+      project data and upload images, which would then be compiled into a
+      structured handover report document (BAST). Automation significantly
+      reduced human error and production time.
+    </p>
+  </Card>
 
-    <Card title="Outcome">
-        <p class="m-0">
-            The system cut the report creation time from days to just a few
-            hours, while producing outputs that were consistent with the
-            required templates and far less prone to manual errors.
-        </p>
-    </Card>
+  <Card title="Outcome">
+    <p class="m-0">
+      The system cut the report creation time from days to just a few hours,
+      while producing outputs that were consistent with the required templates
+      and far less prone to manual errors.
+    </p>
+  </Card>
 
-    <Card title="Technical Highlights">
+  <Card title="Technical Highlights">
+    <ul class="list-indented">
+      <li>
+        Tech Stack
         <ul class="list-indented">
-            <li>
-                Tech Stack
-                <ul class="list-indented">
-                    <li>
-                        <a href="https://laravel.com/docs/12.x/blade"
-                            >Laravel Blade</a
-                        >
-                    </li>
-                    <li><a href="https://laravel.com">Laravel</a></li>
-                    <li><a href="https://www.mysql.com/">MySQL</a></li>
-                </ul>
-            </li>
-            <li>
-                Key Tools
-                <ul class="list-indented">
-                    <li>
-                        <a href="https://github.com/guigrpa/docx-templates"
-                            >docx-templates</a
-                        > for Word document generation
-                    </li>
-                    <li>
-                        <a href="https://github.com/fengyuanchen/cropperjs"
-                            >cropperjs</a
-                        > for maintaining consistent image aspect ratios
-                    </li>
-                    <li>
-                        <a href="https://github.com/spatie/image-optimizer"
-                            >Image optimizer</a
-                        > to reduce file size and speed up report generation
-                    </li>
-                </ul>
-            </li>
-            <li>
-                Features Implemented
-                <ul class="list-indented">
-                    <li>
-                        Admin dashboard for managing company data and letter
-                        templates.
-                    </li>
-                    <li>Image cropping and compression before upload</li>
-                    <li>
-                        Dynamic Word document generation with consistent styling
-                        and structure
-                    </li>
-                </ul>
-            </li>
+          <li>
+            <a href="https://laravel.com/docs/12.x/blade">Laravel Blade</a>
+          </li>
+          <li><a href="https://laravel.com">Laravel</a></li>
+          <li><a href="https://www.mysql.com/">MySQL</a></li>
         </ul>
-    </Card>
+      </li>
+      <li>
+        Key Tools
+        <ul class="list-indented">
+          <li>
+            <a href="https://github.com/guigrpa/docx-templates"
+              >docx-templates</a
+            > for Word document generation
+          </li>
+          <li>
+            <a href="https://github.com/fengyuanchen/cropperjs">cropperjs</a> for
+            maintaining consistent image aspect ratios
+          </li>
+          <li>
+            <a href="https://github.com/spatie/image-optimizer"
+              >Image optimizer</a
+            > to reduce file size and speed up report generation
+          </li>
+        </ul>
+      </li>
+      <li>
+        Features Implemented
+        <ul class="list-indented">
+          <li>
+            Admin dashboard for managing company data and letter templates.
+          </li>
+          <li>Image cropping and compression before upload</li>
+          <li>
+            Dynamic Word document generation with consistent styling and
+            structure
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </Card>
 </Layout>

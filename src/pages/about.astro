@@ -1,5 +1,7 @@
 ---
-import { experiences, educations, skills } from "../data/site";
+import { experiences } from "../data/experiences";
+import { educations } from "../data/educations";
+import { skills } from "../data/skills";
 import Card from "../components/Card.astro";
 import Layout, { type Breadcrumb } from "../layouts/Layout.astro";
 import Timeline from "../components/Timeline.astro";
@@ -47,7 +49,7 @@ const breadcrumb: Breadcrumb[] = [
   </Card>
 
   <Card title="Skills & Tech">
-    <div class="pill-container padded">
+    <div class="pill-container">
       {skills.map((skill) => <div class="pill-item">{skill}</div>)}
     </div>
   </Card>

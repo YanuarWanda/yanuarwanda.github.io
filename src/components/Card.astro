@@ -2,13 +2,13 @@
 import "../styles/components/card.css";
 import { type CardProps } from "../types";
 
-const { title, header, type = "no-border" } = Astro.props as CardProps;
+const { title, header, bordered = false } = Astro.props as CardProps;
 ---
 
-<div class=`card card-${type}`>
-    <h2 class="card-title">{title}</h2>
-    <div class="card-content">
-        {header ? <h3 class="card-header">{header}</h3> : null}
-        <slot />
-    </div>
+<div class=`card ${bordered ? "card-bordered" : "card-no-border"}`>
+  <h2 class="card-title">{title}</h2>
+  <div class="card-content">
+    {header ? <h3 class="card-header">{header}</h3> : null}
+    <slot />
+  </div>
 </div>
