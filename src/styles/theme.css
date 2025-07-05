@@ -1,19 +1,77 @@
 :root {
   /* Colors */
-  --color-primary: #0070f3;
+  --color-primary-50: #e6f1fe;
+  --color-primary-100: #b0d3fb;
+  --color-primary-200: #8abdf9;
+  --color-primary-300: #549ff7;
+  --color-primary-400: #338df5;
+  --color-primary-500: #0070f3;
+  --color-primary-600: #0066dd;
+  --color-primary-700: #0050ad;
+  --color-primary-800: #003e86;
+  --color-primary-900: #002f66;
+
+  --color-secondary-50: #fef5e6;
+  --color-secondary-100: #fbe1b0;
+  --color-secondary-200: #f9d28a;
+  --color-secondary-300: #f7be54;
+  --color-secondary-400: #f5b133;
+  --color-secondary-500: #f39e00;
+  --color-secondary-600: #dd9000;
+  --color-secondary-700: #ad7000;
+  --color-secondary-800: #865700;
+  --color-secondary-900: #664200;
+
+  --color-neutral-50: #f2f3f4;
+  --color-neutral-100: #d8dadc;
+  --color-neutral-200: #c5c8cb;
+  --color-neutral-300: #abafb3;
+  --color-neutral-400: #9a9fa4;
+  --color-neutral-500: #81878d;
+  --color-neutral-600: #757b80;
+  --color-neutral-700: #5c6064;
+  --color-neutral-800: #474a4e;
+  --color-neutral-900: #36393b;
+
+  --color-background-dark: #000000;
+  --color-text-dark: #eeeeee;
+  --color-text-secondary-dark: #9ca3af;
+  --color-border-dark: #ffffff;
+  --color-hover-dark: rgba(255, 255, 255, 0.25);
+  --color-active-dark: rgba(255, 255, 255, 0.15);
+  --color-primary-dark: var(--color-primary-500);
+  --color-primary-hover-dark: var(--color-primary-600);
+  --color-primary-active-dark: var(--color-primary-700);
+  --color-link-visited-dark: #8c8cff;
+
+  --color-background-light: #ffffff;
+  --color-text-light: #111111;
+  --color-text-secondary-light: #646e7d;
+  --color-border-light: #000000;
+  --color-hover-light: rgba(0, 0, 0, 0.25);
+  --color-active-light: rgba(0, 0, 0, 0.15);
+  --color-primary-light: var(--color-primary-400);
+  --color-primary-hover-light: var(--color-primary-500);
+  --color-primary-active-light: var(--color-primary-600);
+  --color-link-visited-light: #0000ee;
+
+  --color-background: #000000;
   --color-text: #eeeeee;
   --color-text-secondary: #9ca3af;
-  --color-background: #000000;
   --color-border: #ffffff;
-  --color-hover: #ffffff40;
-  --color-active: #ffffff26;
+  --color-hover: rgba(255, 255, 255, 0.25);
+  --color-active: rgba(255, 255, 255, 0.15);
+  --color-primary: var(--color-primary-500);
+  --color-primary-hover: var(--color-primary-600);
+  --color-primary-active: var(--color-primary-700);
+  --color-link-visited: #8c8cff;
 
   /* Spacing */
-  --spacing-xsmall: 0.25rem;
-  --spacing-small: 0.5rem;
-  --spacing-medium: 1rem;
-  --spacing-large: 2rem;
-  --spacing-xlarge: 4rem;
+  --spacing-xs: 0.25rem;
+  --spacing-s: 0.5rem;
+  --spacing-m: 1rem;
+  --spacing-l: 2rem;
+  --spacing-xl: 4rem;
 
   /* Typography */
   --font-family-special: "Noto Sans", monospace;
@@ -37,26 +95,13 @@
   --font-weight-bold: 600;
 
   /* Border Radius */
-  --border-radius-small: 0.25rem;
-  --border-radius-medium: 0.5rem;
-  --border-radius-large: 0.75rem;
+  --border-radius-s: 0.25rem;
+  --border-radius-m: 0.5rem;
+  --border-radius-l: 0.75rem;
   --border-radius-full: 9999px;
 
   /* Transitions */
   --transition-default: all 0.2s ease-in-out;
   --transition-fast: all 0.1s ease-in-out;
   --transition-slow: all 0.3s ease-in-out;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Colors */
-    --color-primary: #99c9ff;
-    --color-text: #111111;
-    --color-text-secondary: #646e7d;
-    --color-background: #ffffff;
-    --color-border: #000000;
-    --color-hover: #00000014;
-    --color-active: #0000001f;
-  }
 }

@@ -33,12 +33,41 @@ textarea,
 button,
 select {
   font: inherit;
+  border: none;
+  background-color: transparent;
 }
 
 /* Globals */
 
+.dark {
+  --color-background: var(--color-background-dark);
+  --color-text: var(--color-text-dark);
+  --color-text-secondary: var(--color-text-secondary-dark);
+  --color-border: var(--color-border-dark);
+  --color-hover: var(--color-hover-dark);
+  --color-active: var(--color-active-dark);
+  --color-primary: var(--color-primary-dark);
+  --color-primary-hover: var(--color-primary-hover-dark);
+  --color-primary-active: var(--color-primary-active-dark);
+  --color-link-visited: var(--color-link-visited-dark);
+}
+
+.light {
+  --color-background: var(--color-background-light);
+  --color-text: var(--color-text-light);
+  --color-text-secondary: var(--color-text-secondary-light);
+  --color-border: var(--color-border-light);
+  --color-hover: var(--color-hover-light);
+  --color-active: var(--color-active-light);
+  --color-primary: var(--color-primary-light);
+  --color-primary-hover: var(--color-primary-hover-light);
+  --color-primary-active: var(--color-primary-active-light);
+  --color-link-visited: var(--color-link-visited-light);
+}
+
 body {
   background-color: var(--color-background);
+  color: var(--color-text);
   font-family: var(--font-family);
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-regular);
@@ -55,7 +84,18 @@ h6 {
 }
 
 p {
-  margin-top: 1rem;
+  margin-top: var(--spacing-s);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+a:focus,
+a:focus-visible {
+  color: var(--color-primary);
+  outline: none;
 }
 
 .bold {
@@ -68,4 +108,10 @@ p {
 
 ul.list-indented {
   padding-inline-start: 20px;
+}
+
+@media (min-width: 577px) {
+  p {
+    margin-top: var(--spacing-m);
+  }
 }
