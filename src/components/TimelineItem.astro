@@ -9,26 +9,28 @@ const {
   points = [],
   url,
 } = Astro.props as TimelineProps;
+
+const isExpandable = description || points.length > 0;
 ---
 
 <div class="timeline-item">
-  <h2 class="timeline-title">{title}</h2>
-  <h3 class="timeline-subtitle">{subtitle}</h3>
+  <div class="timeline-header">
+    <h2 class="timeline-title">{title}</h2>
+    <h3 class="timeline-subtitle">{subtitle}</h3>
+    {isExpandable && <i class="timeline-arrow" />}
+    {url && <ExternalLinkIcon class="timeline-icon" />}
+  </div>
   {
-    (description || points.length > 0) && (
-      <>
-        <div class="timeline-description">
-          {description}
+    isExpandable && (
+      <div class="timeline-description">
+        {description}
 
-          <ul class="timeline-point-container">
-            {points.map((point) => (
-              <li class="timeline-point">{point}</li>
-            ))}
-          </ul>
-        </div>
-        <i class="timeline-arrow" />
-      </>
+        <ul class="timeline-point-container">
+          {points.map((point) => (
+            <li class="timeline-point">{point}</li>
+          ))}
+        </ul>
+      </div>
     )
   }
-  {url && <ExternalLinkIcon class="timeline-icon" />}
 </div>
