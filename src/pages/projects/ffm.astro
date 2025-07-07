@@ -1,0 +1,58 @@
+---
+import Layout, { type Breadcrumb } from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "../../components/ImageGallery.astro";
+import screenshot1 from "../../assets/images/ffm-1.jpg";
+import screenshot2 from "../../assets/images/ffm-2.jpg";
+import "../../styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "projects",
+    url: "/projects",
+  },
+  {
+    text: "ffm",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Screenshot of Frisian Flag Malaysia Chatbot",
+  },
+  {
+    src: screenshot2,
+    alt: "Screenshot of Frisian Flag Malaysia Chatbot",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="Frisian Flag Malaysia Chatbot">
+  <h1 class="project-title">Frisian Flag Malaysia Chatbot</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">A WhatsApp chatbot for handling product complaints.</p>
+
+  <Card title="Description">
+    <p class="m-0">
+      Frisian Flag Malaysia Chatbot is a WhatsApp chatbot for handling product
+      complaints.
+    </p>
+    <p>
+      In this project, I developed and maintained a WhatsApp-based customer
+      service chatbot using Kata.ai, C#, .NET, and JavaScript.
+    </p>
+    <p>
+      I created webhooks to connect the chatbot with the backend system and
+      integrated it with Salesforce to handle complaint tracking and facilitate
+      handovers from the bot to live agents.
+    </p>
+    <p>
+      This solution helped bridge customers directly to the customer service
+      team more efficiently, streamlining the process of handling product
+      complaints and improving communication flow.
+    </p>
+  </Card>
+</Layout>

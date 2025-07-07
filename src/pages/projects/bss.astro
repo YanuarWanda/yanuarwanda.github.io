@@ -1,0 +1,51 @@
+---
+import Layout, { type Breadcrumb } from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "../../components/ImageGallery.astro";
+import screenshot1 from "../../assets/images/bss-1.png";
+import "../../styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "projects",
+    url: "/projects",
+  },
+  {
+    text: "bss",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Screenshot of BINUS Curriculum Management System",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="BINUS Curriculum Management System">
+  <h1 class="project-title">BINUS Curriculum Management System</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">A web application for managing curriculum workflows.</p>
+
+  <Card title="Description">
+    <p class="m-0">
+      BINUS Curriculum Management System is a web application designed to
+      streamline the annual curriculum development process at BINUS University,
+      enabling multi-level approval workflows, centralized master data
+      management, and seamless export of curriculum documents to PDF and Excel
+      formats.
+    </p>
+    <p>
+      In this project, I took on a fullstack developer role using C#, .NET,
+      JavaScript, and jQuery.
+    </p>
+    <p>
+      My contributions included building an internal inbox feature and enhancing
+      the lesson plan module. The system helped streamline curriculum-related
+      workflows and improved overall organization and accessibility.
+    </p>
+  </Card>
+</Layout>
