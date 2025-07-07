@@ -9,7 +9,14 @@
   margin-bottom: 37px;
 }
 
+.swiper-slide img {
+  margin: 0 auto;
+  object-fit: contain;
+  height: 360px;
+}
+
 .swiper-slide figcaption {
+  background-color: var(--color-active);
   text-align: center;
   font-size: var(--font-size-smaller);
   font-style: italic;

@@ -1,0 +1,51 @@
+---
+import Layout, { type Breadcrumb } from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "../../components/ImageGallery.astro";
+import screenshot1 from "../../assets/images/tkp-1.png";
+import "../../styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "projects",
+    url: "/projects",
+  },
+  {
+    text: "tokoparts",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Screenshot of Tokoparts",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="Tokoparts">
+  <h1 class="project-title">Tokoparts</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">E-commerce platform for automotive spare parts.</p>
+
+  <Card title="Description">
+    <p class="m-0">
+      Tokoparts is a modern spare parts provider offering a one-stop e-commerce
+      platform that simplifies the online ordering process for a wide range of
+      brands and product categories, aimed at enhancing service quality and
+      customer accessibility.
+    </p>
+    <p>
+      I worked as a fullstack developer on a spare parts e-commerce platform.
+      The frontend was built with JavaScript and jQuery, while the backend used
+      PHP Laravel.
+    </p>
+    <p>
+      I focused on optimizing the UI/UX and improving performance for various
+      pages, resulting in a smoother user experience and better customer
+      engagement.
+    </p>
+  </Card>
+</Layout>

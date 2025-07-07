@@ -1,0 +1,62 @@
+---
+import Layout, { type Breadcrumb } from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "../../components/ImageGallery.astro";
+import screenshot1 from "../../assets/images/mcc-1.jpg";
+import screenshot2 from "../../assets/images/mcc-2.png";
+import screenshot3 from "../../assets/images/mcc-3.png";
+import "../../styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "projects",
+    url: "/projects",
+  },
+  {
+    text: "mira",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Screenshot of Mira - Mitsubishi Chatbot",
+  },
+  {
+    src: screenshot2,
+    alt: "Screenshot of Mira - Mitsubishi Chatbot",
+  },
+  {
+    src: screenshot3,
+    alt: "Screenshot of Mira - Mitsubishi Chatbot",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="Mira - Mitsubishi Chatbot">
+  <h1 class="project-title">Mira - Mitsubishi Chatbot</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">A multi-platform chatbot for customer service.</p>
+
+  <Card title="Description">
+    <p class="m-0">
+      Mira is a chatbot from Mitsubishi to help customer view product, book a
+      service and test drive, and more.
+    </p>
+    <p>
+      In this project, I was responsible for maintaining a chatbot deployed
+      across WhatsApp, Web, and Mobile platforms.
+    </p>
+    <p>
+      I improved the chatbot’s user experience by redesigning the interface from
+      text-based to button-based interactions. Additionally, I developed a
+      queuing system for live customer service agents and ensured the
+      reliability of key features such as service booking, product information
+      delivery, and payment simulations. I also supported the sales team by
+      automating the mass delivery of promotional messages to customers via
+      WhatsApp.
+    </p>
+  </Card>
+</Layout>
