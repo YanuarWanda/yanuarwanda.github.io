@@ -1,0 +1,51 @@
+---
+import Layout, { type Breadcrumb } from "@/layouts/Layout.astro";
+import Card from "@/components/Card.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "@/components/ImageGallery.astro";
+import screenshot1 from "@/assets/images/tkp-1.png";
+import "@/styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "proyek",
+    url: "/projects",
+  },
+  {
+    text: "tokoparts",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Tangkapan layar Tokoparts",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="Tokoparts">
+  <h1 class="project-title">Tokoparts</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">Platform e-commerce untuk suku cadang otomotif.</p>
+
+  <Card title="Deskripsi">
+    <p class="m-0">
+      Tokoparts adalah penyedia suku cadang modern yang menawarkan platform
+      e-commerce terpadu untuk menyederhanakan proses pemesanan online berbagai
+      merek dan kategori produk. Tujuannya adalah untuk meningkatkan kualitas
+      layanan dan kemudahan akses bagi pelanggan.
+    </p>
+    <p>
+      Saya bekerja sebagai fullstack developer di platform e-commerce suku
+      cadang ini. Bagian frontend-nya dibuat dengan JavaScript dan jQuery,
+      sementara backend-nya menggunakan PHP Laravel.
+    </p>
+    <p>
+      Fokus saya adalah mengoptimalkan UI/UX dan meningkatkan performa di
+      berbagai halaman, yang menghasilkan pengalaman pengguna yang lebih lancar
+      dan interaksi pelanggan yang lebih baik.
+    </p>
+  </Card>
+</Layout>

@@ -1,0 +1,56 @@
+---
+import { experiences } from "@/data/experiences";
+import { educations } from "@/data/educations";
+import { skills } from "@/data/skills";
+import Card from "@/components/Card.astro";
+import Layout, { type Breadcrumb } from "@/layouts/Layout.astro";
+import Timeline from "@/components/Timeline.astro";
+import "@/styles/pages/about.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "tentang",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="Tentang Saya">
+  <Card title="Tentang Saya">
+    <p class="m-0">
+      Saya seorang web developer dengan pengalaman <strong class="bold"
+        >lebih dari 2 tahun</strong
+      > dalam membangun aplikasi web dari awal hingga akhir. Saya suka mengubah ide
+      menjadi sebuah pengalaman digital yang interaktif, dan tidak hanya apik secara
+      visual, tapi juga berjalan mulus di berbagai perangkat.
+    </p>
+    <p>
+      Saya berdomisili di Bandung, dan perjalanan karir saya dimulai di Radya
+      Labs Teknologi (kini Radya Digital). Berawal dari magang sebagai Web &
+      Chatbot Developer pada Agustus 2021, saya kemudian diangkat menjadi Web
+      Developer part-time hingga November 2022, dan lanjut sebagai developer
+      full-time selama setahun setelahnya. Selama di sana, saya berkesempatan
+      menangani beragam proyek, mulai dari e-commerce, chatbot, hingga aplikasi
+      internal.
+    </p>
+    <p>
+      Saya punya semangat tinggi untuk belajar hal-hal baru dan memecahkan
+      masalah lewat kode. Entah itu bereksperimen dengan framework, mempercantik
+      tampilan UI/UX, atau membuat sistem lebih efisien, saya selalu antusias
+      untuk terus mengeksplorasi, berkarya, dan bertumbuh sebagai developer.
+    </p>
+  </Card>
+
+  <Card title="Pengalaman">
+    <Timeline timelineItems={experiences} />
+  </Card>
+
+  <Card title="Pendidikan">
+    <Timeline timelineItems={educations} />
+  </Card>
+
+  <Card title="Keahlian & Teknologi">
+    <div class="pill-container">
+      {skills.map((skill) => <div class="pill-item">{skill}</div>)}
+    </div>
+  </Card>
+</Layout>

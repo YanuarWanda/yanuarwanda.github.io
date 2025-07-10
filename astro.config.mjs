@@ -5,4 +5,8 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://yanuarwanda.github.io",
   base: "/",
+  i18n: {
+    locales: ["id", "en"],
+    defaultLocale: "en",
+  },
 });

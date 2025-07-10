@@ -1,18 +1,22 @@
 ---
-import "../styles/components/timeline.css";
-import { type TimelineProps } from "../types";
-import TimelineItem from "./TimelineItem.astro";
+import "@/styles/components/timeline.css";
+import { type TimelineProps } from "@/types";
+import TimelineItem from "@/components/TimelineItem.astro";
+import { getLangFromUrl, useTranslatedPath } from "@/utils/i18n";
 
 const { timelineItems } = Astro.props as {
   timelineItems: TimelineProps[];
 };
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <div class="timeline-container">
   {
     timelineItems.map((timeline) =>
       timeline.url ? (
-        <a href={timeline.url} class="timeline-link">
+        <a href={translatePath(timeline.url)} class="timeline-link">
           <TimelineItem
             title={timeline.title}
             subtitle={timeline.subtitle}

@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { isActive } from "./navigation";
+import { isActive } from "@/utils/navigation";
 
 test("isActive returns true for exact match", () => {
   expect(isActive("/about", "/about")).toBe(true);

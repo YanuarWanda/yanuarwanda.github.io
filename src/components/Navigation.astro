@@ -1,22 +1,28 @@
 ---
 import { Image } from "astro:assets";
-import profileImage from "../assets/images/profile.jpg";
-import "../styles/components/navigation.css";
-import { NAVIGATION_ITEMS as navItems } from "../data/navigation";
-import GithubIcon from "../assets/svg/github.svg";
-import LinkedInIcon from "../assets/svg/linkedin.svg";
-import EmailIcon from "../assets/svg/email.svg";
-import HamburgerIcon from "../assets/svg/hamburger.svg";
-import MoonIcon from "../assets/svg/moon.svg";
-import SunIcon from "../assets/svg/sun.svg";
-import { isActive } from "../utils/navigation";
+import profileImage from "@/assets/images/profile.jpg";
+import "@/styles/components/navigation.css";
+import { NAVIGATION_ITEMS as navItems } from "@/data/navigation";
+import GithubIcon from "@/assets/svg/github.svg";
+import LinkedInIcon from "@/assets/svg/linkedin.svg";
+import EmailIcon from "@/assets/svg/email.svg";
+import HamburgerIcon from "@/assets/svg/hamburger.svg";
+import MoonIcon from "@/assets/svg/moon.svg";
+import SunIcon from "@/assets/svg/sun.svg";
+import GlobeIcon from "@/assets/svg/globe.svg";
+import ChevronRightIcon from "@/assets/svg/chevron-right.svg";
+import { isActive } from "@/utils/navigation";
+import { languages, defaultLang } from "@/i18n/ui";
+import { getLangFromUrl, useTranslatedPath } from "@/utils/i18n";
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "");
+const currentLang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(currentLang);
 ---
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
-    <a href="/" class="nav-profile">
+    <a href={translatePath("/")} class="nav-profile">
       <Image
         src={profileImage}
         alt="Profile picture of Yanuar Wanda"
@@ -72,6 +78,18 @@ const currentPath = Astro.url.pathname;
     </div>
 
     <button
+      class="nav-i18n"
+      aria-expanded="false"
+      aria-label="Toggle language menu"
+    >
+      <GlobeIcon />
+      <div class="nav-i18n-text">{languages[currentLang]}</div>
+      <div class="nav-i18n-arrow">
+        <ChevronRightIcon />
+      </div>
+    </button>
+
+    <button
       class="nav-hamburger"
       aria-expanded="false"
       aria-label="Toggle navigation menu"
@@ -80,18 +98,32 @@ const currentPath = Astro.url.pathname;
     </button>
   </div>
 
+  <ul role="list" class="nav-i18n-option-container">
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <li role="listitem" class="nav-i18n-option">
+          <a
+            href={lang === defaultLang ? currentPath : `/${lang}${currentPath}`}
+            class={`nav-i18n-link ${lang === currentLang ? "active" : ""}`}
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
   <ul role="list" class="nav-list">
     {
       navItems.map((item) => (
         <li role="listitem" class="nav-item">
           <a
-            href={item.href}
+            href={item.toNewTab ? item.href : translatePath(item.href)}
             class={`nav-link ${isActive(item.href, currentPath) ? "active" : ""}`}
-            aria-label={`Go to ${item.text} section`}
             aria-current={isActive(item.href, currentPath) ? "page" : undefined}
             target={item.toNewTab ? "_blank" : ""}
           >
-            {item.text}
+            {item.text[currentLang]}
           </a>
         </li>
       ))
@@ -146,6 +178,18 @@ const currentPath = Astro.url.pathname;
     });
   }
 
+  // i18n
+  const i18nButton = document.querySelector(".nav-i18n");
+  const i18nList = document.querySelector(".nav-i18n-option-container");
+
+  if (i18nButton && i18nList) {
+    i18nButton.addEventListener("click", () => {
+      i18nList.classList.toggle("nav-open");
+      const isExpanded = i18nList.classList.contains("nav-open");
+      i18nButton.setAttribute("aria-expanded", isExpanded.toString());
+    });
+  }
+
   window.addEventListener("click", (event: MouseEvent) => {
     if (
       navList &&
@@ -155,6 +199,17 @@ const currentPath = Astro.url.pathname;
       navList.classList.remove("nav-open");
       if (hamburgerButton) {
         hamburgerButton.setAttribute("aria-expanded", "false");
+      }
+    }
+
+    if (
+      i18nList &&
+      !i18nButton?.contains(event.target as Node) &&
+      !i18nList?.contains(event.target as Node)
+    ) {
+      i18nList.classList.remove("nav-open");
+      if (i18nButton) {
+        i18nButton.setAttribute("aria-expanded", "false");
       }
     }
   });

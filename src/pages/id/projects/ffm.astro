@@ -1,0 +1,58 @@
+---
+import Layout, { type Breadcrumb } from "@/layouts/Layout.astro";
+import Card from "@/components/Card.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "@/components/ImageGallery.astro";
+import screenshot1 from "@/assets/images/ffm-1.jpg";
+import screenshot2 from "@/assets/images/ffm-2.jpg";
+import "@/styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "proyek",
+    url: "/projects",
+  },
+  {
+    text: "ffm",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Tangkapan layar Chatbot Frisian Flag Malaysia",
+  },
+  {
+    src: screenshot2,
+    alt: "Tangkapan layar Chatbot Frisian Flag Malaysia",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="Chatbot Frisian Flag Malaysia">
+  <h1 class="project-title">Chatbot Frisian Flag Malaysia</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">Chatbot WhatsApp untuk menangani keluhan produk.</p>
+
+  <Card title="Deskripsi">
+    <p class="m-0">
+      Chatbot Frisian Flag Malaysia adalah chatbot WhatsApp untuk menangani
+      keluhan produk.
+    </p>
+    <p>
+      Dalam proyek ini, saya mengembangkan dan memelihara chatbot layanan
+      pelanggan berbasis WhatsApp menggunakan Kata.ai, C#, .NET, dan JavaScript.
+    </p>
+    <p>
+      Saya membuat webhook untuk menghubungkan chatbot dengan sistem backend dan
+      mengintegrasikannya dengan Salesforce untuk menangani pelacakan keluhan
+      serta memfasilitasi alih tugas dari bot ke agen langsung.
+    </p>
+    <p>
+      Solusi ini membantu menghubungkan pelanggan langsung ke tim layanan
+      pelanggan dengan lebih efisien, mempercepat proses penanganan keluhan
+      produk, dan meningkatkan alur komunikasi.
+    </p>
+  </Card>
+</Layout>

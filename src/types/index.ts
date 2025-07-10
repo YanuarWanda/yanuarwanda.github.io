@@ -1,5 +1,5 @@
 export interface NavigationItem {
-  text: string;
+  text: Record<string, string>;
   href: string;
   toNewTab: boolean;
 }
@@ -17,10 +17,10 @@ export interface SiteConfig {
 }
 
 export interface TimelineProps {
-  title: string;
-  subtitle: string;
-  description?: string;
-  points?: string[];
+  title: Record<string, string>;
+  subtitle: Record<string, string>;
+  description?: Record<string, string>;
+  points?: Record<string, string>[];
   url?: string;
 }
 

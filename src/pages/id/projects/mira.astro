@@ -1,0 +1,63 @@
+---
+import Layout, { type Breadcrumb } from "@/layouts/Layout.astro";
+import Card from "@/components/Card.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "@/components/ImageGallery.astro";
+import screenshot1 from "@/assets/images/mcc-1.jpg";
+import screenshot2 from "@/assets/images/mcc-2.png";
+import screenshot3 from "@/assets/images/mcc-3.png";
+import "@/styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "proyek",
+    url: "/projects",
+  },
+  {
+    text: "mira",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Tangkapan layar Mira - Chatbot Mitsubishi",
+  },
+  {
+    src: screenshot2,
+    alt: "Tangkapan layar Mira - Chatbot Mitsubishi",
+  },
+  {
+    src: screenshot3,
+    alt: "Tangkapan layar Mira - Chatbot Mitsubishi",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="Mira - Chatbot Mitsubishi">
+  <h1 class="project-title">Mira - Chatbot Mitsubishi</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">Sebuah chatbot multi-platform untuk layanan pelanggan.</p>
+
+  <Card title="Deskripsi">
+    <p class="m-0">
+      Mira adalah chatbot dari Mitsubishi untuk membantu pelanggan melihat
+      produk, memesan jadwal servis dan test drive, serta berbagai kebutuhan
+      lainnya.
+    </p>
+    <p>
+      Dalam proyek ini, saya bertanggung jawab untuk memelihara chatbot yang
+      digunakan di berbagai platform, yaitu WhatsApp, Web, dan Mobile.
+    </p>
+    <p>
+      Saya meningkatkan pengalaman pengguna chatbot dengan merancang ulang
+      antarmuka dari yang semula berbasis teks menjadi berbasis tombol. Selain
+      itu, saya juga mengembangkan sistem antrean untuk agen customer service
+      dan memastikan fungsi fitur-fitur utama seperti pemesanan jadwal servis,
+      penyampaian informasi produk, dan simulasi pembayaran berjalan dengan
+      baik. Saya juga mendukung tim penjualan dengan mengotomatiskan pengiriman
+      pesan promosi massal kepada pelanggan melalui WhatsApp.
+    </p>
+  </Card>
+</Layout>

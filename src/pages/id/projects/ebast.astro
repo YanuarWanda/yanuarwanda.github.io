@@ -10,7 +10,7 @@ import "@/styles/pages/projects.css";
 
 const breadcrumb: Breadcrumb[] = [
   {
-    text: "projects",
+    text: "proyek",
     url: "/projects",
   },
   {
@@ -21,11 +21,11 @@ const breadcrumb: Breadcrumb[] = [
 const images: GalleryImage[] = [
   {
     src: screenshot1,
-    alt: "Screenshot of eBast Login Page",
+    alt: "Tangkapan layar halaman login eBast",
   },
   {
     src: screenshot2,
-    alt: "Screenshot of eBast Home Page",
+    alt: "Tangkapan layar halaman utama eBast",
   },
 ];
 ---
@@ -33,38 +33,38 @@ const images: GalleryImage[] = [
 <Layout page={breadcrumb} title="eBAST">
   <h1 class="project-title">eBAST</h1>
   <ImageGallery images={images} />
-  <p class="m-0">A platform for generating project handover reports (BAST)</p>
+  <p class="m-0">Platform untuk membuat laporan serah terima proyek (BAST)</p>
 
-  <Card title="The Problem">
+  <Card title="Permasalahan">
     <p class="m-0">
-      After project completion, teams had to manually compile large reports
-      containing data and numerous images into formatted Word documents. This
-      was time-intensive and often prone to formatting errors, especially when
-      handling a high volume of data and inconsistent image sizes.
+      Setelah proyek selesai, tim harus menyusun laporan besar secara manual
+      yang berisi data dan banyak gambar ke dalam dokumen Word yang terformat.
+      Proses ini memakan waktu dan sering terjadi kesalahan format, terutama
+      saat menangani data dalam jumlah besar dan ukuran gambar yang tidak
+      konsisten.
     </p>
   </Card>
 
-  <Card title="The Solution">
+  <Card title="Solusi">
     <p class="m-0">
-      A web application to streamline report creation. It allowed users to input
-      project data and upload images, which would then be compiled into a
-      structured handover report document (BAST). Automation significantly
-      reduced human error and production time.
+      Aplikasi web untuk mempermudah pembuatan laporan. Pengguna dapat
+      memasukkan data proyek dan mengunggah gambar, yang kemudian akan
+      dikompilasi menjadi dokumen laporan serah terima (BAST) yang terstruktur.
     </p>
   </Card>
 
-  <Card title="Outcome">
+  <Card title="Hasil">
     <p class="m-0">
-      The system cut the report creation time from days to just a few hours,
-      while producing outputs that were consistent with the required templates
-      and far less prone to manual errors.
+      Sistem ini memangkas waktu pembuatan laporan dari beberapa hari menjadi
+      hanya beberapa jam, dengan hasil yang konsisten sesuai template yang
+      dibutuhkan dan jauh lebih minim kesalahan manual.
     </p>
   </Card>
 
-  <Card title="Technical Highlights">
+  <Card title="Teknis">
     <ul class="list-indented">
       <li>
-        Tech Stack
+        Teknologi yang Digunakan
         <ul class="list-indented">
           <li>
             <a href="https://laravel.com/docs/12.x/blade">Laravel Blade</a>
@@ -74,34 +74,34 @@ const images: GalleryImage[] = [
         </ul>
       </li>
       <li>
-        Key Tools
+        Alat Utama
         <ul class="list-indented">
           <li>
             <a href="https://github.com/guigrpa/docx-templates"
               >docx-templates</a
-            > for Word document generation
+            > untuk pembuatan dokumen Word
           </li>
           <li>
-            <a href="https://github.com/fengyuanchen/cropperjs">cropperjs</a> for
-            maintaining consistent image aspect ratios
+            <a href="https://github.com/fengyuanchen/cropperjs">cropperjs</a> untuk
+            menjaga rasio aspek gambar tetap konsisten
           </li>
           <li>
             <a href="https://github.com/spatie/image-optimizer"
               >Image optimizer</a
-            > to reduce file size and speed up report generation
+            > untuk memperkecil ukuran file dan mempercepat pembuatan laporan
           </li>
         </ul>
       </li>
       <li>
-        Features Implemented
+        Fitur yang Diimplementasikan
         <ul class="list-indented">
           <li>
-            Admin dashboard for managing company data and letter templates.
+            Dashboard admin untuk mengelola data perusahaan dan template surat.
           </li>
-          <li>Image cropping and compression before upload</li>
+          <li>Pemotongan dan kompresi gambar sebelum diunggah</li>
           <li>
-            Dynamic Word document generation with consistent styling and
-            structure
+            Pembuatan dokumen Word dinamis dengan gaya dan struktur yang
+            konsisten
           </li>
         </ul>
       </li>
