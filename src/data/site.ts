@@ -8,6 +8,6 @@ export const SITE_CONFIG: SiteConfig = {
   author: "Yanuar Wanda",
   keywords: ["Yanuar Wanda", "developer", "portfolio", "projects"],
   theme: "dark",
-  version: "v0.0.8",
-  lastUpdated: "10.07.25",
+  version: "v0.1.0",
+  lastUpdated: "11.07.25",
 };
