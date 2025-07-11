@@ -1,9 +1,14 @@
 ---
-import "../styles/components/footer.css";
+import "@/styles/components/footer.css";
+import { getLangFromUrl, useTranslations } from "@/utils/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer>
   <p>
-    © 2025 Yanuar Wanda. Build with <a href="https://astro.build/">Astro</a>.
+    © 2025 Yanuar Wanda. {t("footer.built")}
+    <a href="https://astro.build/">Astro</a>.
   </p>
 </footer>

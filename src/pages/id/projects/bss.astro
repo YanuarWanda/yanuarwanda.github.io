@@ -1,0 +1,52 @@
+---
+import Layout, { type Breadcrumb } from "@/layouts/Layout.astro";
+import Card from "@/components/Card.astro";
+import ImageGallery, {
+  type GalleryImage,
+} from "@/components/ImageGallery.astro";
+import screenshot1 from "@/assets/images/bss-1.png";
+import "@/styles/pages/projects.css";
+
+const breadcrumb: Breadcrumb[] = [
+  {
+    text: "proyek",
+    url: "/projects",
+  },
+  {
+    text: "bss",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    src: screenshot1,
+    alt: "Tangkapan layar BINUS Curriculum Management System",
+  },
+];
+---
+
+<Layout page={breadcrumb} title="BINUS Curriculum Management System">
+  <h1 class="project-title">BINUS Curriculum Management System</h1>
+  <ImageGallery images={images} />
+  <p class="m-0">Aplikasi web untuk mengelola alur kerja kurikulum.</p>
+
+  <Card title="Deskripsi">
+    <p class="m-0">
+      BINUS Curriculum Management System adalah aplikasi web yang dirancang
+      untuk menyederhanakan proses pengembangan kurikulum tahunan di Universitas
+      BINUS. Aplikasi ini memungkinkan alur persetujuan bertingkat, pengelolaan
+      data master terpusat, dan ekspor dokumen kurikulum ke format PDF dan Excel
+      dengan mudah.
+    </p>
+    <p>
+      Dalam proyek ini, saya berperan sebagai fullstack developer menggunakan
+      C#, .NET, JavaScript, dan jQuery.
+    </p>
+    <p>
+      Kontribusi saya meliputi pembuatan fitur kotak masuk internal dan
+      penyempurnaan modul rencana pembelajaran. Sistem ini membantu
+      menyederhanakan alur kerja terkait kurikulum serta meningkatkan organisasi
+      dan aksesibilitas secara keseluruhan.
+    </p>
+  </Card>
+</Layout>

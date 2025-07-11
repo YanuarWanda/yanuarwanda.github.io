@@ -1,4 +1,4 @@
-import type { SiteConfig } from "../types";
+import type { SiteConfig } from "@/types";
 
 export const SITE_CONFIG: SiteConfig = {
   title: "Yanuar Wanda",
@@ -8,6 +8,6 @@ export const SITE_CONFIG: SiteConfig = {
   author: "Yanuar Wanda",
   keywords: ["Yanuar Wanda", "developer", "portfolio", "projects"],
   theme: "dark",
-  version: "v0.0.7",
-  lastUpdated: "07.07.25",
+  version: "v0.1.0",
+  lastUpdated: "11.07.25",
 };

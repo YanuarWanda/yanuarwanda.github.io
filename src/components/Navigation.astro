@@ -1,22 +1,27 @@
 ---
 import { Image } from "astro:assets";
-import profileImage from "../assets/images/profile.jpg";
-import "../styles/components/navigation.css";
-import { NAVIGATION_ITEMS as navItems } from "../data/navigation";
-import GithubIcon from "../assets/svg/github.svg";
-import LinkedInIcon from "../assets/svg/linkedin.svg";
-import EmailIcon from "../assets/svg/email.svg";
-import HamburgerIcon from "../assets/svg/hamburger.svg";
-import MoonIcon from "../assets/svg/moon.svg";
-import SunIcon from "../assets/svg/sun.svg";
-import { isActive } from "../utils/navigation";
+import profileImage from "@/assets/images/profile.jpg";
+import "@/styles/components/navigation.css";
+import { NAVIGATION_ITEMS as navItems } from "@/data/navigation";
+import GithubIcon from "@/assets/svg/github.svg";
+import LinkedInIcon from "@/assets/svg/linkedin.svg";
+import EmailIcon from "@/assets/svg/email.svg";
+import HamburgerIcon from "@/assets/svg/hamburger.svg";
+import MoonIcon from "@/assets/svg/moon.svg";
+import SunIcon from "@/assets/svg/sun.svg";
+import GlobeIcon from "@/assets/svg/globe.svg";
+import { isActive } from "@/utils/navigation";
+import { languages, defaultLang } from "@/i18n/ui";
+import { getLangFromUrl, useTranslatedPath } from "@/utils/i18n";
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/^\/[a-z]{2}(?=\/|$)/, "");
+const currentLang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(currentLang);
 ---
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="nav-container">
-    <a href="/" class="nav-profile">
+    <a href={translatePath("/")} class="nav-profile">
       <Image
         src={profileImage}
         alt="Profile picture of Yanuar Wanda"
@@ -62,13 +67,45 @@ const currentPath = Astro.url.pathname;
       </a>
     </div>
 
-    <div class="nav-theme-container">
-      <button class="nav-theme-icon-container" aria-label="Toggle dark mode">
-        <div class="nav-theme-switcher">
-          <div class="sun-icon"><SunIcon /></div>
-          <div class="moon-icon"><MoonIcon /></div>
+    <div class="nav-setting">
+      <button
+        class="nav-i18n"
+        aria-expanded="false"
+        aria-label="Toggle language menu"
+      >
+        <div class="nav-i18n-icon">
+          <GlobeIcon />
         </div>
+        <div class="nav-i18n-text">{currentLang}</div>
+        <ul role="list" class="nav-i18n-list">
+          {
+            Object.entries(languages).map(([lang, label]) => (
+              <li role="listitem" class="nav-i18n-item">
+                <a
+                  href={
+                    lang === defaultLang
+                      ? currentPath
+                      : `/${lang}${currentPath}`
+                  }
+                  class={`nav-i18n-link ${lang === currentLang ? "active" : ""}`}
+                  tabindex="-1"
+                >
+                  {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </button>
+
+      <div class="nav-theme-container">
+        <button class="nav-theme-icon-container" aria-label="Toggle dark mode">
+          <div class="nav-theme-switcher">
+            <div class="sun-icon"><SunIcon /></div>
+            <div class="moon-icon"><MoonIcon /></div>
+          </div>
+        </button>
+      </div>
     </div>
 
     <button
@@ -80,18 +117,33 @@ const currentPath = Astro.url.pathname;
     </button>
   </div>
 
+  <ul role="list" class="nav-i18n-option-container">
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <li role="listitem" class="nav-i18n-option">
+          <a
+            href={lang === defaultLang ? currentPath : `/${lang}${currentPath}`}
+            class={`nav-i18n-link ${lang === currentLang ? "active" : ""}`}
+            tabindex="-1"
+          >
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
   <ul role="list" class="nav-list">
     {
       navItems.map((item) => (
         <li role="listitem" class="nav-item">
           <a
-            href={item.href}
+            href={item.toNewTab ? item.href : translatePath(item.href)}
             class={`nav-link ${isActive(item.href, currentPath) ? "active" : ""}`}
-            aria-label={`Go to ${item.text} section`}
             aria-current={isActive(item.href, currentPath) ? "page" : undefined}
             target={item.toNewTab ? "_blank" : ""}
           >
-            {item.text}
+            {item.text[currentLang]}
           </a>
         </li>
       ))
@@ -123,53 +175,126 @@ const currentPath = Astro.url.pathname;
 </script>
 
 <script>
-  // Hamburger
-  const hamburgerButton = document.querySelector(".nav-hamburger");
-  const navList = document.querySelector(".nav-list");
-  const navLinks = navList?.querySelectorAll("a");
-  const isMobile = window.innerWidth <= 577;
+  const MOBILE_WIDTH_THRESHOLD = 577;
+  const toggleTabindexList = (list: Element | null, showTabindex: boolean) => {
+    if (!list) return;
 
-  if (isMobile) {
-    navLinks?.forEach((link) => {
-      link.setAttribute("tabindex", "-1");
+    const listItems = list.querySelectorAll("a");
+    listItems.forEach((item) => {
+      item.setAttribute("tabindex", showTabindex ? "0" : "-1");
     });
-  }
+  };
+  const toggleList = (
+    button: Element | null,
+    list: Element | null,
+    show: boolean | undefined = undefined,
+  ) => {
+    if (!button || !list) return;
 
-  if (hamburgerButton && navList) {
-    hamburgerButton.addEventListener("click", () => {
-      navList.classList.toggle("nav-open");
-      const isExpanded = navList.classList.contains("nav-open");
-      hamburgerButton.setAttribute("aria-expanded", isExpanded.toString());
-      navLinks?.forEach((link) => {
-        link.setAttribute("tabindex", isExpanded ? "0" : "-1");
-      });
-    });
-  }
+    const isExpanded =
+      typeof show === "boolean" ? show : !list.classList.contains("nav-open");
+    list.classList.toggle("nav-open", isExpanded);
+    button.setAttribute("aria-expanded", isExpanded.toString());
 
-  window.addEventListener("click", (event: MouseEvent) => {
-    if (
-      navList &&
-      !hamburgerButton?.contains(event.target as Node) &&
-      !navList?.contains(event.target as Node)
-    ) {
-      navList.classList.remove("nav-open");
-      if (hamburgerButton) {
-        hamburgerButton.setAttribute("aria-expanded", "false");
-      }
-    }
-  });
-
-  // Theme Switcher
-  const handleToggleClick = () => {
-    const element = document.documentElement;
-    element.classList.toggle("dark");
-    element.classList.toggle("light");
-
-    const isDark = element.classList.contains("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+    toggleTabindexList(list, isExpanded);
   };
 
-  document
-    .querySelector(".nav-theme-icon-container")
-    ?.addEventListener("click", handleToggleClick);
+  // Hamburger
+  const initializeHamburger = () => {
+    const btn = document.querySelector(".nav-hamburger");
+    const list = document.querySelector(".nav-list");
+
+    btn?.addEventListener("click", () => {
+      toggleList(btn, list);
+    });
+
+    const onResize = () => {
+      toggleTabindexList(list, !(window.innerWidth <= MOBILE_WIDTH_THRESHOLD));
+    };
+    onResize();
+
+    window.addEventListener("resize", () => {
+      onResize();
+    });
+
+    screen.orientation.addEventListener("change", () => {
+      onResize();
+    });
+
+    window.addEventListener("click", (event: MouseEvent) => {
+      if (
+        !btn?.contains(event.target as Node) &&
+        !list?.contains(event.target as Node) &&
+        list?.classList.contains("nav-open")
+      ) {
+        toggleList(btn, list, false);
+      }
+    });
+  };
+  initializeHamburger();
+
+  // i18n
+  const initializeI18n = () => {
+    const btn = document.querySelector(".nav-i18n");
+    const listMobile = document.querySelector(".nav-i18n-option-container");
+    const listDesktop = document.querySelector(".nav-i18n-list");
+
+    const onClickMobile = () => {
+      toggleList(btn, listMobile);
+    };
+    const onClickDesktop = () => {
+      toggleList(btn, listDesktop);
+    };
+
+    let onClick = onClickMobile;
+    const onResize = () => {
+      onClick =
+        window.innerWidth <= MOBILE_WIDTH_THRESHOLD
+          ? onClickMobile
+          : onClickDesktop;
+    };
+    onResize();
+
+    btn?.addEventListener("click", () => {
+      onClick();
+    });
+
+    window.addEventListener("resize", () => {
+      onResize();
+    });
+
+    screen.orientation.addEventListener("change", () => {
+      onResize();
+    });
+
+    window.addEventListener("click", (event: MouseEvent) => {
+      if (
+        !btn?.contains(event.target as Node) &&
+        !listMobile?.contains(event.target as Node) &&
+        !listDesktop?.contains(event.target as Node) &&
+        (listMobile?.classList.contains("nav-open") ||
+          listDesktop?.classList.contains("nav-open"))
+      ) {
+        toggleList(btn, listMobile, false);
+        toggleList(btn, listDesktop, false);
+      }
+    });
+  };
+  initializeI18n();
+
+  // Theme Switcher
+  const initializeThemeSwitcher = () => {
+    const btn = document.querySelector(".nav-theme-icon-container");
+    const onClick = () => {
+      const element = document.documentElement;
+      element.classList.toggle("dark");
+      element.classList.toggle("light");
+
+      const isDark = element.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    };
+
+    btn?.addEventListener("click", onClick);
+  };
+  initializeThemeSwitcher();
 </script>

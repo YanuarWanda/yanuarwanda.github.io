@@ -11,7 +11,7 @@ import "@/styles/pages/projects.css";
 
 const breadcrumb: Breadcrumb[] = [
   {
-    text: "projects",
+    text: "proyek",
     url: "/projects",
   },
   {
@@ -22,15 +22,15 @@ const breadcrumb: Breadcrumb[] = [
 const images: GalleryImage[] = [
   {
     src: screenshot1,
-    alt: "Screenshot of Auctioneer Login Page",
+    alt: "Tangkapan layar halaman login Auctioneer",
   },
   {
     src: screenshot2,
-    alt: "Screenshot of Auctioneer Home Page",
+    alt: "Tangkapan layar halaman utama Auctioneer",
   },
   {
     src: screenshot3,
-    alt: "Screenshot of Auctioneer Item Page",
+    alt: "Tangkapan layar halaman item Auctioneer",
   },
 ];
 ---
@@ -38,38 +38,39 @@ const images: GalleryImage[] = [
 <Layout page={breadcrumb} title="Auctioneer">
   <h1 class="project-title">Auctioneer</h1>
   <ImageGallery images={images} />
-  <p class="m-0">A document automation platform for project bidding letters</p>
+  <p class="m-0">Platform otomatisasi dokumen untuk surat penawaran proyek</p>
 
-  <Card title="The Problem">
+  <Card title="Permasalahan">
     <p class="m-0">
-      The client faced a repetitive and time-consuming task: generating formal
-      tender letters for each project bid. These letters often spanned multiple
-      pages, and required strict formatting. Manual creation could take days,
-      leaving room for human error and inconsistencies.
+      Klien menghadapi tugas yang berulang dan memakan waktu saat membuat surat
+      penawaran tender formal untuk setiap proyek. Surat-surat ini sering kali
+      terdiri dari beberapa halaman dan membutuhkan format yang sangat ketat.
+      Pembuatan manual bisa memakan waktu berhari-hari, serta berisiko terjadi
+      kesalahan manusia dan inkonsistensi.
     </p>
   </Card>
 
-  <Card title="The Solution">
+  <Card title="Solusi">
     <p class="m-0">
-      A custom web application that manages company project data and
-      automatically generates tender letters in both Microsoft Word and PDF
-      formats. The system used pre-defined templates and populated them
-      dynamically with the required project data.
+      Sebuah aplikasi web khusus yang mengelola data proyek perusahaan dan
+      secara otomatis menghasilkan surat penawaran dalam format Microsoft Word
+      dan PDF. Sistem ini menggunakan template yang sudah ditentukan dan
+      mengisinya secara dinamis dengan data proyek yang diperlukan.
     </p>
   </Card>
 
-  <Card title="Outcome">
+  <Card title="Hasil">
     <p class="m-0">
-      The application reduced the time required to produce tender letters from
-      days to just a few hours, ensuring consistency with templates and
-      significantly minimizing formatting errors.
+      Aplikasi ini mengurangi waktu pembuatan surat penawaran dari beberapa hari
+      menjadi hanya beberapa jam, memastikan konsistensi dengan template, dan
+      secara signifikan meminimalkan kesalahan format.
     </p>
   </Card>
 
-  <Card title="Technical Highlights">
+  <Card title="Teknis">
     <ul class="list-indented">
       <li>
-        Tech Stack
+        Teknologi yang Digunakan
         <ul class="list-indented">
           <li><a href="https://vuejs.org/">Vue 3</a></li>
           <li><a href="https://laravel.com">Laravel</a></li>
@@ -77,28 +78,29 @@ const images: GalleryImage[] = [
         </ul>
       </li>
       <li>
-        Key Tools
+        Alat Utama
         <ul class="list-indented">
           <li>
             <a href="https://github.com/guigrpa/docx-templates"
               >docx-templates</a
-            > for Word document generation
+            > untuk pembuatan dokumen Word
           </li>
           <li>
             <a href="https://github.com/spatie/browsershot"> browsershot </a>
-            for generating PDFs via headless Chrome
+            untuk menghasilkan PDF melalui headless Chrome
           </li>
         </ul>
       </li>
       <li>
-        Features Implemented
+        Fitur yang Diimplementasikan
         <ul class="list-indented">
           <li>
-            Admin dashboard for managing company projects and letter templates.
+            Dashboard admin untuk mengelola proyek perusahaan dan template
+            surat.
           </li>
           <li>
-            Template-based document generation with support for Custom fonts,
-            dynamic headers/footers, and image insertion.
+            Pembuatan dokumen berbasis template dengan dukungan font kustom,
+            header/footer dinamis, dan penyisipan gambar.
           </li>
         </ul>
       </li>

@@ -1,38 +1,73 @@
-import type { TimelineProps } from "../types";
+import type { TimelineProps } from "@/types";
 
 export const projects: TimelineProps[] = [
   {
-    title: "Auctioneer",
-    subtitle: "Document automation platform for project bidding letters",
+    title: {
+      en: "Auctioneer",
+    },
+    subtitle: {
+      en: "Document automation platform for project bidding letters",
+      id: "Platform otomatisasi dokumen untuk surat penawaran proyek",
+    },
     url: "/projects/auctioneer",
   },
   {
-    title: "eBAST",
-    subtitle: "Platform for generating project handover reports (BAST)",
+    title: {
+      en: "eBAST",
+    },
+    subtitle: {
+      en: "Platform for generating project handover reports (BAST)",
+      id: "Platform untuk membuat laporan serah terima proyek (BAST)",
+    },
     url: "/projects/ebast",
   },
   {
-    title: "Frisian Flag Malaysia Chatbot",
-    subtitle: "WhatsApp chatbot for handling product complaints",
+    title: {
+      en: "Frisian Flag Malaysia Chatbot",
+    },
+    subtitle: {
+      en: "WhatsApp chatbot for handling product complaints",
+      id: "Chatbot WhatsApp untuk menangani keluhan produk",
+    },
     url: "/projects/ffm",
   },
   {
-    title: "Mira - Mitsubishi Chatbot",
-    subtitle: "Multi-platform chatbot for customer service",
+    title: {
+      en: "Mira - Mitsubishi Chatbot",
+    },
+    subtitle: {
+      en: "Multi-platform chatbot for customer service",
+      id: "Chatbot multi-platform untuk layanan pelanggan",
+    },
     url: "/projects/mira",
   },
   {
-    title: "BINUS Curriculum Management System",
-    subtitle: "Web application for managing curriculum workflows.",
+    title: {
+      en: "BINUS Curriculum Management System",
+    },
+    subtitle: {
+      en: "Web application for managing curriculum workflows.",
+      id: "Aplikasi web untuk mengelola alur kerja kurikulum.",
+    },
     url: "/projects/bss",
   },
   {
-    title: "Tokoparts",
-    subtitle: "E-commerce platform for automotive spare parts",
+    title: {
+      en: "Tokoparts",
+    },
+    subtitle: {
+      en: "E-commerce platform for automotive spare parts",
+      id: "Platform e-commerce untuk suku cadang otomotif",
+    },
     url: "/projects/tokoparts",
   },
   {
-    title: "yanuarwanda.github.io",
-    subtitle: "My personal website",
+    title: {
+      en: "yanuarwanda.github.io",
+    },
+    subtitle: {
+      en: "My personal website",
+      id: "Situs web pribadi saya",
+    },
   },
 ];
