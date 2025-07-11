@@ -16,9 +16,9 @@
 
   display: grid;
   grid-template-areas:
-    "profile text  i18n theme-switcher hamburger"
-    "profile media i18n theme-switcher hamburger";
-  grid-template-columns: auto 1fr 32px 32px;
+    "profile text  setting hamburger"
+    "profile media setting hamburger";
+  grid-template-columns: auto 1fr 80px 32px;
   column-gap: var(--spacing-s);
   row-gap: var(--spacing-s);
   align-items: center;
@@ -82,8 +82,16 @@
 }
 
 /* i18n */
+.nav-setting {
+  grid-area: setting;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: center;
+  gap: var(--spacing-s);
+  padding: 0;
+}
+
 .nav-i18n {
-  grid-area: i18n;
   justify-self: center;
   display: grid;
   justify-content: center;
@@ -120,9 +128,12 @@
   display: none;
 }
 
+.nav-i18n-list {
+  display: none;
+}
+
 /* Theme Switcher */
 .nav-theme-container {
-  grid-area: theme-switcher;
   justify-self: center;
 
   border-radius: var(--border-radius-m);
@@ -268,7 +279,7 @@
 
   .nav-container {
     position: static;
-    grid-template-areas: "profile" "text" "media" "theme-switcher" "i18n";
+    grid-template-areas: "profile" "text" "media" "setting";
     grid-template-columns: 1fr;
     gap: 0;
     display: grid;
@@ -307,8 +318,48 @@
     justify-content: center;
   }
 
+  .nav-setting {
+    gap: var(--spacing-m);
+    padding: var(--spacing-m);
+    justify-content: center;
+    border-bottom: 1px solid var(--color-border);
+  }
+
   /* i18n */
   .nav-i18n {
+    border: 1px solid var(--color-border);
+    text-transform: uppercase;
+    font-size: var(--font-size-small);
+    position: relative;
+  }
+
+  .nav-i18n-icon {
+    display: none;
+  }
+
+  .nav-i18n-text {
+    display: block;
+  }
+
+  .nav-i18n-list {
+    list-style-type: none;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    z-index: 1;
+    background-color: var(--color-background);
+    border-radius: var(--border-radius-m);
+    border: 1px solid var(--color-border);
+    display: none;
+
+    transition: var(--transition-default);
+  }
+
+  .nav-i18n-list.nav-open {
+    display: block;
+  }
+
+  /* .nav-i18n {
     width: 100%;
     height: 100%;
     display: grid;
@@ -353,20 +404,20 @@
 
   .nav-list:has(~ .nav-i18n-option-container.nav-open) {
     left: -192px;
-  }
+  } */
 
   /* Theme Switcher */
   .nav-theme-container {
-    height: auto;
-    padding: var(--spacing-m);
-    justify-self: center;
+    border: 1px solid var(--color-border);
+  }
+
+  /* .nav-theme-container {
     cursor: pointer;
     width: 100%;
     display: grid;
     justify-content: center;
     align-items: center;
     border-radius: 0;
-    border-bottom: 1px solid var(--color-border);
   }
 
   .nav-theme-container:hover,
@@ -386,10 +437,6 @@
     border-radius: var(--border-radius-full);
     justify-content: start;
     transition: var(--transition-default);
-  }
-
-  .nav-theme-icon-container:hover {
-    border-color: var(--color-hover);
   }
 
   .nav-theme-icon-container:focus,
@@ -425,7 +472,7 @@
   .nav-theme-switcher svg {
     width: 16px;
     height: 16px;
-  }
+  } */
 
   /* Hamburger */
   .nav-hamburger {
