@@ -16,7 +16,11 @@ const translatePath = useTranslatedPath(lang);
   {
     timelineItems.map((timeline) =>
       timeline.url ? (
-        <a href={translatePath(timeline.url)} class="timeline-link">
+        <a
+          href={translatePath(timeline.url)}
+          class="timeline-link"
+          tabindex="-1"
+        >
           <TimelineItem
             title={timeline.title}
             subtitle={timeline.subtitle}
@@ -39,19 +43,26 @@ const translatePath = useTranslatedPath(lang);
 </div>
 
 <script>
-  const containerEl = document.querySelector(".timeline-container");
-  if (containerEl) {
-    containerEl.addEventListener("click", (e) => {
-      const currentEl = e.target as HTMLDivElement;
-      if (!currentEl) return;
+  const initializeTimeline = () => {
+    const containerEl = document.querySelector(".timeline-container");
+    if (!containerEl) return;
 
-      const itemEl = currentEl.closest(".timeline-item");
-      if (!itemEl) return;
-
-      const descriptionEl = itemEl.querySelector(".timeline-description");
-      if (!descriptionEl) return;
-
+    const toggleItem = (target: HTMLElement) => {
+      const itemEl = target.closest(".timeline-item");
+      const descriptionEl = itemEl?.querySelector(".timeline-description");
       descriptionEl?.classList.toggle("visible");
-    });
-  }
+    };
+
+    const handleToggle = (e: Event) => {
+      const target = e.target;
+      if (!(target instanceof HTMLElement)) return;
+      if (e instanceof KeyboardEvent && e.key !== "Enter") return;
+
+      toggleItem(target);
+    };
+
+    containerEl.addEventListener("click", handleToggle);
+    containerEl.addEventListener("keydown", handleToggle);
+  };
+  initializeTimeline();
 </script>

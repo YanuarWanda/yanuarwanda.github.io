@@ -1,6 +1,6 @@
 export const languages: Record<string, string> = {
   en: "English",
-  id: "Indonesian",
+  id: "Bahasa Indonesia",
 };
 
 export const defaultLang = "en";

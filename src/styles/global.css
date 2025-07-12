@@ -93,9 +93,14 @@ a {
 }
 
 a:focus,
+a:active {
+  color: var(--color-text-secondary);
+}
+
 a:focus-visible {
   color: var(--color-primary);
-  outline: none;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 .bold {

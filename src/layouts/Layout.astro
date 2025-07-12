@@ -31,6 +31,9 @@ const { page = [], title = "" } = Astro.props as LayoutProps;
 <html lang={lang}>
   <Head title={title} />
   <body class="container">
+    <a href="#content" class="skip-to-content button button-primary">
+      Skip to main content
+    </a>
     <Navigation />
     <main class="content">
       <div class="content-header">
@@ -49,7 +52,7 @@ const { page = [], title = "" } = Astro.props as LayoutProps;
           {SITE_CONFIG.version}
         </div>
       </div>
-      <div class="content-container">
+      <div class="content-container" id="content">
         <slot />
       </div>
     </main>

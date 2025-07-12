@@ -5,6 +5,7 @@ import "@/styles/components/navigation.css";
 import { NAVIGATION_ITEMS as navItems } from "@/data/navigation";
 import GithubIcon from "@/assets/svg/github.svg";
 import LinkedInIcon from "@/assets/svg/linkedin.svg";
+import ExternalLinkIcon from "@/assets/svg/external-link.svg";
 import EmailIcon from "@/assets/svg/email.svg";
 import HamburgerIcon from "@/assets/svg/hamburger.svg";
 import MoonIcon from "@/assets/svg/moon.svg";
@@ -98,14 +99,12 @@ const translatePath = useTranslatedPath(currentLang);
         </ul>
       </button>
 
-      <div class="nav-theme-container">
-        <button class="nav-theme-icon-container" aria-label="Toggle dark mode">
-          <div class="nav-theme-switcher">
-            <div class="sun-icon"><SunIcon /></div>
-            <div class="moon-icon"><MoonIcon /></div>
-          </div>
-        </button>
-      </div>
+      <button class="nav-theme-container" aria-label="Toggle dark mode">
+        <div class="nav-theme-switcher">
+          <div class="sun-icon"><SunIcon /></div>
+          <div class="moon-icon"><MoonIcon /></div>
+        </div>
+      </button>
     </div>
 
     <button
@@ -143,7 +142,8 @@ const translatePath = useTranslatedPath(currentLang);
             aria-current={isActive(item.href, currentPath) ? "page" : undefined}
             target={item.toNewTab ? "_blank" : ""}
           >
-            {item.text[currentLang]}
+            <div class="nav-item-text">{item.text[currentLang]}</div>
+            {item.toNewTab && <ExternalLinkIcon class="nav-item-icon" />}
           </a>
         </li>
       ))
@@ -176,18 +176,28 @@ const translatePath = useTranslatedPath(currentLang);
 
 <script>
   const MOBILE_WIDTH_THRESHOLD = 577;
-  const toggleTabindexList = (list: Element | null, showTabindex: boolean) => {
+
+  const toggleTabindexList = (
+    list: Element | null,
+    showTabindex: boolean,
+    focus = false,
+  ) => {
     if (!list) return;
 
     const listItems = list.querySelectorAll("a");
-    listItems.forEach((item) => {
+    listItems.forEach((item, index) => {
       item.setAttribute("tabindex", showTabindex ? "0" : "-1");
+      if (showTabindex && focus && index === 0) {
+        item.focus();
+      }
     });
   };
+
   const toggleList = (
     button: Element | null,
     list: Element | null,
     show: boolean | undefined = undefined,
+    focus = false,
   ) => {
     if (!button || !list) return;
 
@@ -196,7 +206,7 @@ const translatePath = useTranslatedPath(currentLang);
     list.classList.toggle("nav-open", isExpanded);
     button.setAttribute("aria-expanded", isExpanded.toString());
 
-    toggleTabindexList(list, isExpanded);
+    toggleTabindexList(list, isExpanded, focus);
   };
 
   // Hamburger
@@ -230,6 +240,16 @@ const translatePath = useTranslatedPath(currentLang);
         toggleList(btn, list, false);
       }
     });
+
+    document.addEventListener("focusin", (e) => {
+      if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
+        const target = e.target;
+
+        if (!list?.contains(target as Node) && target !== btn) {
+          toggleList(btn, list, false);
+        }
+      }
+    });
   };
   initializeHamburger();
 
@@ -259,6 +279,17 @@ const translatePath = useTranslatedPath(currentLang);
       onClick();
     });
 
+    btn?.addEventListener("keydown", (e) => {
+      if (
+        window.innerWidth <= MOBILE_WIDTH_THRESHOLD &&
+        e instanceof KeyboardEvent &&
+        e.key === "Enter"
+      ) {
+        e.preventDefault();
+        toggleList(btn, listMobile, undefined, true);
+      }
+    });
+
     window.addEventListener("resize", () => {
       onResize();
     });
@@ -279,12 +310,24 @@ const translatePath = useTranslatedPath(currentLang);
         toggleList(btn, listDesktop, false);
       }
     });
+
+    document.addEventListener("focusin", (e) => {
+      const target = e.target;
+
+      if (!listMobile?.contains(target as Node) && target !== btn) {
+        toggleList(btn, listMobile, false);
+      }
+
+      if (!listDesktop?.contains(target as Node) && target !== btn) {
+        toggleList(btn, listDesktop, false);
+      }
+    });
   };
   initializeI18n();
 
   // Theme Switcher
   const initializeThemeSwitcher = () => {
-    const btn = document.querySelector(".nav-theme-icon-container");
+    const btn = document.querySelector(".nav-theme-container");
     const onClick = () => {
       const element = document.documentElement;
       element.classList.toggle("dark");

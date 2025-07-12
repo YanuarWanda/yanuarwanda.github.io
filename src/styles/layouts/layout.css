@@ -23,6 +23,22 @@
   padding: 1rem;
 }
 
+.skip-to-content {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+}
+
+.skip-to-content:focus {
+  z-index: 9999;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  height: auto;
+  border-radius: 0 0 var(--border-radius-m) var(--border-radius-m);
+}
+
 @media (min-width: 577px) {
   .container {
     grid-template-columns: 192px 1fr;
