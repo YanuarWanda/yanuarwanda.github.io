@@ -17,7 +17,7 @@ export interface ImageGalleryProps {
 const { images } = Astro.props as ImageGalleryProps;
 ---
 
-<div class="swiper">
+<div class="swiper" tabindex="0">
   <div class="swiper-wrapper">
     {
       images.map((image) => (
@@ -40,13 +40,21 @@ const { images } = Astro.props as ImageGalleryProps;
 
 <script>
   import Swiper from "swiper";
-  import { Pagination } from "swiper/modules";
+  import { Pagination, Keyboard } from "swiper/modules";
 
-  new Swiper(".swiper", {
-    modules: [Pagination],
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    autoHeight: true,
-  });
+  const initializeSwiper = () => {
+    new Swiper(".swiper", {
+      modules: [Pagination, Keyboard],
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      autoHeight: true,
+      keyboard: {
+        enabled: true,
+      },
+      grabCursor: true,
+    });
+  };
+  initializeSwiper();
 </script>
