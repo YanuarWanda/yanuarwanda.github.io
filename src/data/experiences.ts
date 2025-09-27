@@ -6,7 +6,7 @@ export const experiences: TimelineProps[] = [
       en: "Web Developer",
     },
     subtitle: {
-      en: "Radya Digital • Nov 2021 - Nov 2023",
+      en: "Radya Labs • Nov 2021 - Nov 2023",
     },
     description: {
       en: "Developed and maintained chatbot and e-commerce projects.",
@@ -36,7 +36,7 @@ export const experiences: TimelineProps[] = [
       en: "Web Developer (Internship)",
     },
     subtitle: {
-      en: "Radya Digital • Aug 2021 - Nov 2021",
+      en: "Radya Labs • Aug 2021 - Nov 2021",
     },
     description: {
       en: "Developed and maintained chatbot and internal tool projects.",
