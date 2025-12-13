@@ -14,7 +14,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "astro": "^5.13.1",
+    "astro": "^5.15.9",
     "shiki": "^3.2.2",
     "swiper": "^11.2.10"
   },
